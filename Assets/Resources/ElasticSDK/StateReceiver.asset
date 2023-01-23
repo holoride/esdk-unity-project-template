@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8655639125467701336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b3a99ac4a243ff8f00aace161dce16, type: 3}
+  m_Name: FixedPositionStateReceiverBackend
+  m_EditorClassIdentifier: 
+  location:
+    Latitude: 48.15299987792969
+    Longitude: 11.571999549865723
+    Altitude: 0
+--- !u!114 &-6926727652211361771
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52a08644c644f30b0beb9d8890a342c, type: 3}
+  m_Name: ServiceStateReceiverBackend
+  m_EditorClassIdentifier: 
+  automaticallyConnectAndSubscribe: 1
+  interpolator:
+    InitialFrameSize: 0.03
+    MaxFrameSize: 0.2
+--- !u!114 &-503136596979266556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b7d27c9b5c44ee8d8ad651411403d8, type: 3}
+  m_Name: ReplayStateReceiverBackend
+  m_EditorClassIdentifier: 
+  replay: {fileID: 11400000, guid: ecd2a054207c23a498d4eb8e9cc79197, type: 2}
+  loop: 1
+  interpolator:
+    InitialFrameSize: 0.03
+    MaxFrameSize: 0.2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 935779249, guid: 075c1b6290021214a94ab7c078ce203f, type: 3}
+  m_Name: StateReceiver
+  m_EditorClassIdentifier: 
+  Backends:
+  - {fileID: -8655639125467701336}
+  - {fileID: -503136596979266556}
+  - {fileID: -6926727652211361771}
+  EditorBackend: {fileID: -503136596979266556}
+  StandaloneBackend: {fileID: -6926727652211361771}

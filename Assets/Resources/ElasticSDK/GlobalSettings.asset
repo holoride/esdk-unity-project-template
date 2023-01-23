@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1196095471, guid: 075c1b6290021214a94ab7c078ce203f, type: 3}
+  m_Name: GlobalSettings
+  m_EditorClassIdentifier: 
+  manifestFile: {fileID: 0}
+  signedManifestAssetId: 
+  signedManifest: 
+  laneWidth: 4
+  roadSideWidth: 4
+  defaultLaneCount: 2
+  minimumImportCoordinateDistance: 5
+  defaultRouteSpeed: 50
+  logDownloadURLs: 0
+  logNodeTimings: 0
+  logToFile: 0

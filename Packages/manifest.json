@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.holoride.elasticsdk": "0.22.7",
+    "com.htc.upm.wave.xrsdk": "5.1.1-r.4",
     "com.unity.collab-proxy": "1.17.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.15",
@@ -41,5 +43,23 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "holoride",
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production",
+      "scopes": [
+        "com.holoride",
+        "com.github.siccity",
+        "com.cysharp.unitask"
+      ]
+    },
+    {
+      "name": "VIVE",
+      "url": "https://npm-registry.vive.com",
+      "scopes": [
+        "com.htc.upm"
+      ]
+    }
+  ]
 }

@@ -1,5 +1,49 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "2.3.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
+    },
+    "com.github.siccity.xnode": {
+      "version": "1.8.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
+    },
+    "com.holoride.elasticsdk": {
+      "version": "0.22.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.cysharp.unitask": "2.3.1",
+        "com.github.siccity.xnode": "1.8.0",
+        "com.unity.nuget.newtonsoft-json": "2.0.2",
+        "com.unity.editorcoroutines": "1.0.0",
+        "com.unity.ugui": "1.0.0",
+        "com.holoride.elasticsdk.servicesdk.android": "1.0.3"
+      },
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
+    },
+    "com.holoride.elasticsdk.servicesdk.android": {
+      "version": "1.0.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
+    },
+    "com.htc.upm.wave.xrsdk": {
+      "version": "5.1.1-r.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "3.2.4"
+      },
+      "url": "https://npm-registry.vive.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.17.1",
       "depth": 0,
@@ -64,7 +108,7 @@
     },
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -92,6 +136,15 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.subsystemregistration": {
+      "version": "1.1.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.subsystems": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
@@ -152,6 +205,29 @@
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.legacyinputhelpers": {
+      "version": "2.1.9",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.xr.management": {
+      "version": "4.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.subsystems": "1.0.0",
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0",
+        "com.unity.xr.legacyinputhelpers": "2.1.7",
+        "com.unity.subsystemregistration": "1.0.6"
       },
       "url": "https://packages.unity.com"
     },
