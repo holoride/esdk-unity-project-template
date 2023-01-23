@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Leaving_Munich Replay
   m_EditorClassIdentifier: 
   timeInterval:
-    Min: 0
+    Min: 20
     Max: Infinity
   holofile: {fileID: -6702184691110734468, guid: 3f9f002897f56534e8488082943d1447, type: 3}
   route: {fileID: 0}

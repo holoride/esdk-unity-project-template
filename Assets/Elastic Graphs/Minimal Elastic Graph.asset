@@ -136,7 +136,7 @@ MonoBehaviour:
   Heightmap: {fileID: 0}
   PermittedArea: {fileID: 0}
   PermittedAreaThreshold: 0
-  GridCellSize: 50
+  GridCellSize: 20
   Prefab: {fileID: 607722134876580759, guid: 0964779c368bcc142b608916b6ab2513, type: 3}
   PrefabList: {fileID: 0}
   Jittering: 0
