@@ -28,6 +28,14 @@
       },
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
+    "com.holoride.elasticsdk.fadetobackground.builtinrp": {
+      "version": "file:com.holoride.elasticsdk.fadetobackground.builtinrp",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.holoride.elasticsdk": "0.22.7"
+      }
+    },
     "com.holoride.elasticsdk.servicesdk.android": {
       "version": "1.0.3",
       "depth": 1,

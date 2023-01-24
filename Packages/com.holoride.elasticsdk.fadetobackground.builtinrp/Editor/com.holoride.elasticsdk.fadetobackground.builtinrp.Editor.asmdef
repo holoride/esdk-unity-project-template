@@ -1,0 +1,20 @@
+{
+    "name": "Holoride.ElasticSDK.FadeToBackground.BuildInRenderPipeline.Editor",
+    "rootNamespace": "Holoride.ElasticSDK.FadeToBackground.BuildInRenderPipeline",
+    "references": [
+        "GUID:8b75764e0cce7a047b24b9395d5adbb4",
+        "GUID:93ce039d63597d74e90f5ca81827b912",
+        "GUID:b011956c3ccb4b1caa6ab54dc3d8134d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

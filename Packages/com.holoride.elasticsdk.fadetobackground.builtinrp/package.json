@@ -1,0 +1,30 @@
+{
+  "name": "com.holoride.elasticsdk.fadetobackground.builtinrp",
+  "displayName": "ElasticSDK Fade-to-Background Shaders (Build-in Render Pipeline)",
+  "description": "Support package that comes with a set of shaders that fade objects from the skybox instead of a solid color fog. This is particularly useful to conceal popup effects in the distance. In contrast to real transparency, the performance impact is negligible.",
+  "unity": "2020.3",
+  "keywords": [
+    "holoride",
+    "elastic",
+    "sdk",
+    "tools",
+    "shaders",
+    "built-in render pipeline"
+  ],
+  "author": {
+    "name": "holoride",
+    "email": "esdk-support@holoride.com",
+    "url": "https://holoride.com"
+  },
+  "samples": [
+  {
+    "displayName": "Example scene that uses Fade-to-Background shaders",
+    "description": "Contains a scene where objects with various materials fade-in from the skybox instead of a solid color fog.",
+    "path": "Samples~/FadeToBackgroundScene"
+  }
+  ],
+  "dependencies": {
+    "com.holoride.elasticsdk": "0.22.7"
+  },
+  "version": "0.0.0"
+}
