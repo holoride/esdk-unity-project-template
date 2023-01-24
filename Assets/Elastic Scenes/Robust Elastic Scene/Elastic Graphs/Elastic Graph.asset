@@ -1,0 +1,396 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6749499489009006395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e9099504809724aa597ea54ea479de, type: 3}
+  m_Name: Constant Value
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -680, y: -264}
+  ports:
+    keys:
+    - Output
+    values:
+    - _fieldName: Output
+      _node: {fileID: -6749499489009006395}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Heightmap
+        node: {fileID: -1804789579461077453}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+  Value: -2
+--- !u!114 &-6676042148536557908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329d2462ac911ac4087ebe7ded62776d, type: 3}
+  m_Name: Road Network Mask
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -952, y: 392}
+  ports:
+    keys:
+    - Output
+    values:
+    - _fieldName: Output
+      _node: {fileID: -6676042148536557908}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: -2023519290942491214}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+--- !u!114 &-2023519290942491214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf71459b2e8a28b44b6ccd6df9dd6832, type: 3}
+  m_Name: Distance Transform
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -696, y: 376}
+  ports:
+    keys:
+    - Input
+    - Output
+    values:
+    - _fieldName: Input
+      _node: {fileID: -2023519290942491214}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: -6676042148536557908}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Output
+      _node: {fileID: -2023519290942491214}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: PermittedArea
+        node: {fileID: 6473188868557530942}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+  Threshold: 0
+  Invert: 0
+  SignedDistance: 0
+  BorderDistance: 1
+  FadeWithPrevious: 0
+  Input: {fileID: 0}
+--- !u!114 &-1804789579461077453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7330a3ca005196499f693a90064dd32, type: 3}
+  m_Name: Robust Elastic Scene Definition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 0, y: 0}
+  ports:
+    keys:
+    - Heightmap
+    - TextureLayers
+    - Spawners
+    values:
+    - _fieldName: Heightmap
+      _node: {fileID: -1804789579461077453}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: -6749499489009006395}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: TextureLayers
+      _node: {fileID: -1804789579461077453}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.TextureLayerNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: 8295516903975603502}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Spawners
+      _node: {fileID: -1804789579461077453}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Spawners.SpawnerNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: 6473188868557530942}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  Heightmap: {fileID: 0}
+  TextureLayers: {fileID: 0}
+  Spawners: {fileID: 0}
+  OutputNodeNames: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717c2ab5edc36fe40a3c9ba044c0379e, type: 3}
+  m_Name: Elastic Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1804789579461077453}
+  - {fileID: 6473188868557530942}
+  - {fileID: 8295516903975603502}
+  - {fileID: 3463686969166834914}
+  - {fileID: -6749499489009006395}
+  - {fileID: -6676042148536557908}
+  - {fileID: 463892716697196128}
+  - {fileID: -2023519290942491214}
+--- !u!114 &463892716697196128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a179ed4e2cef2429966e2af5fc6e81, type: 3}
+  m_Name: Constant Zero
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -696, y: 280}
+  ports:
+    keys:
+    - Output
+    values:
+    - _fieldName: Output
+      _node: {fileID: 463892716697196128}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Heightmap
+        node: {fileID: 6473188868557530942}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+--- !u!114 &3463686969166834914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76f76b50bdf39a44b4a05e80445a57e, type: 3}
+  m_Name: Constant One
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -696, y: 8}
+  ports:
+    keys:
+    - Output
+    values:
+    - _fieldName: Output
+      _node: {fileID: 3463686969166834914}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: TextureWeight
+        node: {fileID: 8295516903975603502}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+--- !u!114 &6473188868557530942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46f1dd43adcbb94096425483cbe7e42, type: 3}
+  m_Name: Grid Spawner
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -360, y: 280}
+  ports:
+    keys:
+    - PrefabList
+    - Heightmap
+    - PermittedArea
+    - Output
+    values:
+    - _fieldName: PrefabList
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.DataProviders.DataProviderNode`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        Holoride.ElasticSDK.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Heightmap
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: 463892716697196128}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: PermittedArea
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: -2023519290942491214}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Output
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Spawners.SpawnerNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Spawners
+        node: {fileID: -1804789579461077453}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+  Extents: 400
+  EligibleForInjection: 0
+  Heightmap: {fileID: 0}
+  PermittedArea: {fileID: 0}
+  PermittedAreaThreshold: 4
+  GridCellSize: 20
+  Prefab: {fileID: 27315777039211710, guid: faf0cee97478b5849bd734be607cf4d9, type: 3}
+  PrefabList: {fileID: 0}
+  Jittering: 0
+  Scale:
+    Min: 1
+    Max: 1
+  TranslateY:
+    Min: 0
+    Max: 0
+  RotateX:
+    Min: 0
+    Max: 0
+  RotateY:
+    Min: 0
+    Max: 0
+  RotateZ:
+    Min: 0
+    Max: 0
+--- !u!114 &8295516903975603502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbeebf4aab7f4c4a9c689aee558ade3, type: 3}
+  m_Name: Texture Layer
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -360, y: 8}
+  ports:
+    keys:
+    - TextureWeight
+    - Output
+    values:
+    - _fieldName: TextureWeight
+      _node: {fileID: 8295516903975603502}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: 3463686969166834914}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Output
+      _node: {fileID: 8295516903975603502}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.TextureLayerNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: TextureLayers
+        node: {fileID: -1804789579461077453}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+  TextureWeight: {fileID: 0}
+  TerrainLayer: {fileID: 8574412962073106934, guid: fe50793b9eaa32a44bb9a077dbd58e24, type: 2}
