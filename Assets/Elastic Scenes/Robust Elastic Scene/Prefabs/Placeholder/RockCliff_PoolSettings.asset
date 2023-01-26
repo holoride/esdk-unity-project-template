@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fa29fdac914cf3bec2dd74aabf8590, type: 3}
+  m_Name: RockCliff_PoolSettings
+  m_EditorClassIdentifier: 
+  PooledPrefab: {fileID: 4579652022412169392, guid: 61c4fd5095ada5143b8cc8d7897b1e49, type: 3}
+  maxPoolSize: 15
+  initPoolSize: 10
+  <MaxInitFrames>k__BackingField: 0

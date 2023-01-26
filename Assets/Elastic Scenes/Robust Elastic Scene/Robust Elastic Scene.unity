@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.6
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 205c1892bcd93e7498568b3d12265564, type: 2}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3315929, g: 0.19466674, b: 0.3895367, a: 1}
+  m_IndirectSpecularColor: {r: 0.4342721, g: 0.70124865, b: 0.7705339, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,6 +445,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6520954864404063723, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
+      propertyPath: PoolSettings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6520954864404063723, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
+      propertyPath: PoolSettings.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f6618c41eb19e442b331508ea27c7cd, type: 2}
+    - target: {fileID: -6520954864404063723, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
+      propertyPath: PoolSettings.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 02f65d2eeada992468001bd45664cdf8, type: 2}
+    - target: {fileID: -6520954864404063723, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
+      propertyPath: PoolSettings.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 23b17598710a9cb48a557c819f4cb779, type: 2}
     - target: {fileID: 1175468240523808903, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
       propertyPath: shiftManager
       value: 
@@ -452,7 +468,7 @@ PrefabInstance:
     - target: {fileID: 1175468240523808903, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
       propertyPath: SceneDefinition
       value: 
-      objectReference: {fileID: -1804789579461077453, guid: e5bd1bb9f5a92a54d957a12ef9763c28, type: 2}
+      objectReference: {fileID: -1439898783941201485, guid: 3962948581397d24b950e71bb6b2341a, type: 2}
     - target: {fileID: 1175468240523808903, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
       propertyPath: TerrainMaterial
       value: 
@@ -613,7 +629,7 @@ MonoBehaviour:
   maxOpacity: 1
   maxOpaqueDistance: 100
   maxTransparentDistance: 200
-  behaviorOnEnable: 3
+  behaviorOnEnable: 0
   animationType: 0
   animationCurve:
     serializedVersion: 2
