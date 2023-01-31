@@ -28,13 +28,25 @@
       },
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
-    "com.holoride.elasticsdk.fadetobackground.builtinrp": {
-      "version": "file:com.holoride.elasticsdk.fadetobackground.builtinrp",
+    "com.holoride.elasticsdk.content2dtools": {
+      "version": "0.1.1",
       "depth": 0,
-      "source": "embedded",
+      "source": "registry",
+      "dependencies": {
+        "com.cysharp.unitask": "2.3.1",
+        "com.holoride.elasticsdk.servicesdk.android": "1.0.3",
+        "com.holoride.elasticsdk": "0.21.6"
+      },
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
+    },
+    "com.holoride.elasticsdk.fadetobackground.builtinrp": {
+      "version": "0.1.0",
+      "depth": 0,
+      "source": "registry",
       "dependencies": {
         "com.holoride.elasticsdk": "0.22.7"
-      }
+      },
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
     "com.holoride.elasticsdk.servicesdk.android": {
       "version": "1.0.3",
