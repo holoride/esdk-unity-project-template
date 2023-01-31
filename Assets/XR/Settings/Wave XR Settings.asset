@@ -28,11 +28,11 @@ MonoBehaviour:
   - 0.8
   - 0.7
   - 0.6
-  foveationMode: 2
+  foveationMode: 1
   leftClearVisionFOV: 38
   rightClearVisionFOV: 38
-  leftPeripheralQuality: 2
-  rightPeripheralQuality: 2
+  leftPeripheralQuality: 1
+  rightPeripheralQuality: 1
   overridePixelDensity: 0
   pixelDensity: 1
   resolutionScale: 1

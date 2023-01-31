@@ -34,11 +34,6 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       Name: OnLoad
       ParameterTypes: []
-    - DeclaringType: Holoride.ElasticSDK.Content2DTools.Content2DServiceManager,
-        Holoride.ElasticSDK.Content2DTools.Runtime, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      Name: OnLoad
-      ParameterTypes: []
     - DeclaringType: Holoride.ElasticSDK.StreetDistanceSingleton, Holoride.ElasticSDK.Runtime,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Name: Init
@@ -46,4 +41,9 @@ MonoBehaviour:
     - DeclaringType: Holoride.ElasticSDK.Graph.GraphAccessUtils, Holoride.ElasticSDK.Runtime,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Name: Initialize
+      ParameterTypes: []
+    - DeclaringType: Holoride.ElasticSDK.Content2DTools.Content2DServiceManager,
+        Holoride.ElasticSDK.Content2DTools.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      Name: OnLoad
       ParameterTypes: []
