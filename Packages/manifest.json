@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "com.holoride.elasticsdk": "0.22.7",
+    "com.holoride.elasticsdk.content2dtools": "0.1.1",
+    "com.holoride.elasticsdk.fadetobackground.builtinrp": "0.1.0",
     "com.htc.upm.wave.xrsdk": "5.1.1-r.4",
     "com.unity.collab-proxy": "1.17.1",
     "com.unity.feature.development": "1.0.1",
