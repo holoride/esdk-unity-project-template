@@ -704,7 +704,8 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: USE_VIVE_WAVE_XR_5_1_1
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
