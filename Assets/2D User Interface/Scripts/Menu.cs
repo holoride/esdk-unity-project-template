@@ -1,5 +1,7 @@
 // Copyright (c) holoride GmbH. All Rights Reserved.
 
+using System;
+
 namespace Holoride.ElasticSDKTemplate
 {
     using TMPro;
@@ -74,11 +76,19 @@ namespace Holoride.ElasticSDKTemplate
 
         private void Update()
         {
-            this.contentRectTransform.anchoredPosition = Vector2.SmoothDamp(
-                this.contentRectTransform.anchoredPosition,
-                this.targetScrollPosition,
-                ref targetScrollVelocity,
-                this.adjustSeconds);
+            var currentScrollPosition = this.contentRectTransform.anchoredPosition;
+            if (Vector2.Distance(this.targetScrollPosition, currentScrollPosition) > 0.1f)
+            {
+                this.contentRectTransform.anchoredPosition = Vector2.SmoothDamp(
+                    currentScrollPosition,
+                    this.targetScrollPosition,
+                    ref targetScrollVelocity,
+                    this.adjustSeconds);
+
+                this.scrollRect.normalizedPosition = new Vector2(
+                    Mathf.Clamp01(this.scrollRect.normalizedPosition.x),
+                    Mathf.Clamp01(this.scrollRect.normalizedPosition.y));
+            }
         }
     }
 }

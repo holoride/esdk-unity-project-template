@@ -641,7 +641,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 126533279}
-  m_Father: {fileID: 715487138}
+  m_Father: {fileID: 1909283498}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1760444972
@@ -796,6 +796,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1909283498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7004889019904674770, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
+  m_PrefabInstance: {fileID: 127601725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8787916084472842409
 PrefabInstance:
   m_ObjectHideFlags: 0
