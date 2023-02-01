@@ -1,7 +1,5 @@
 // Copyright (c) holoride GmbH. All Rights Reserved.
 
-using System;
-
 namespace Holoride.ElasticSDKTemplate
 {
     using TMPro;
