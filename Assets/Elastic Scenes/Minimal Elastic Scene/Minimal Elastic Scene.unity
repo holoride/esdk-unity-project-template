@@ -238,7 +238,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 127601728}
+    m_TransformParent: {fileID: 715487138}
     m_Modifications:
     - target: {fileID: 3826547234474155018, guid: 51ceca246a420ac42a7e1b82c75e6c0c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -708,6 +708,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 126533279}
-  m_Father: {fileID: 715487138}
+  m_Father: {fileID: 127601728}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
