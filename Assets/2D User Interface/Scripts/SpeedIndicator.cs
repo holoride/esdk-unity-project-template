@@ -1,15 +1,19 @@
-using Holoride.ElasticSDK;
-using TMPro;
-using UnityEngine;
+// Copyright (c) holoride GmbH. All Rights Reserved.
 
-public class SpeedIndicator : MonoBehaviour
+namespace Holoride.ElasticSDKTemplate
 {
-    [SerializeField]
-    private TMP_Text textField;
-    
-    void Update()
+    using ElasticSDK;
+    using TMPro;
+    using UnityEngine;
+
+    public class SpeedIndicator : MonoBehaviour
     {
-        int speed = (int)StateReceiver.VehicleSensorState.VehicleSpeed_Kmh;
-        this.textField.text = $"{speed} km/h";
+        [SerializeField] private TMP_Text textField;
+
+        void Update()
+        {
+            int speed = (int) StateReceiver.VehicleSensorState.VehicleSpeed_Kmh;
+            this.textField.text = $"{speed} km/h";
+        }
     }
 }
