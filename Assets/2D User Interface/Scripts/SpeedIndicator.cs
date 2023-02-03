@@ -6,9 +6,14 @@ namespace Holoride.ElasticSDKTemplate
     using TMPro;
     using UnityEngine;
 
+    /// <summary>
+    /// Writes the current vehicle speed into a text field.
+    /// </summary>
     public class SpeedIndicator : MonoBehaviour
     {
-        [SerializeField] private TMP_Text textField;
+        [Tooltip("The text to be replaced by the current vehicle speed.")]
+        [SerializeField] 
+        private TMP_Text textField;
 
         void Update()
         {
