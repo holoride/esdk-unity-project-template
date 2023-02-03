@@ -7,17 +7,26 @@ namespace Holoride.ElasticSDKTemplate
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
+    /// <summary>
+    /// Controls the UI to select and switch to another scene, or reload the current scene. Triggers the fadeout
+    /// animation on scene changes if the FadeToBackgroundManager is linked. Disables a LocalizationEvent component to
+    /// not interrupt an ongoing fadeout animation before a scene change. 
+    /// </summary>
     public class SceneSwitcher : MonoBehaviour
     {
-        [SerializeField] 
+        [Tooltip("The menu to display the scene selection.")]
+        [SerializeField]
         private Menu menu;
         
+        [Tooltip("The canvas to toggle the UI.")]
         [SerializeField] 
         private GameObject canvas;
         
+        [Tooltip("The LocalizationEvents to disable before the scene unloads.")]
         [SerializeField] 
         private LocalizationEvents localizationEvents;
         
+        [Tooltip("The FadeToBackgroundManager to fade the scene in or out.")]
         [SerializeField] 
         private FadeToBackgroundManager fadeToBackgroundManager;
         
@@ -31,6 +40,7 @@ namespace Holoride.ElasticSDKTemplate
 
             for (int i = 0; i < sceneCount; i++)
             {
+                // this is a workaround due to this issue: https://forum.unity.com/threads/getscenebybuildindex-problem.452560
                 string path = SceneUtility.GetScenePathByBuildIndex(i);
                 string sceneName = path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1);
 
@@ -38,7 +48,7 @@ namespace Holoride.ElasticSDKTemplate
                     ? $"{sceneName}<line-height=0>\n<align=right>(reload)<line-height=1em>"
                     : sceneName;
 
-                var button = this.menu.AddButton(buttonText, () => this.LoadScene(sceneName));
+                this.menu.AddButton(buttonText, () => this.LoadScene(sceneName));
             }
         }
 
