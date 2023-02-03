@@ -8,11 +8,16 @@ namespace Holoride.ElasticSDKTemplate
     using UnityEngine.EventSystems;
     using UnityEngine.UI;
 
+    /// <summary>
+    /// A simple manu to add MenuButton instances to.
+    /// </summary>
     public class Menu : MonoBehaviour
     {
+        [Tooltip("A button prefab that requires a MenuButton component.")]
         [SerializeField] 
         private GameObject buttonPrefab;
         
+        [Tooltip("The ScrollRect which is parent to the buttons.")]
         [SerializeField] 
         private ScrollRect scrollRect;
 
@@ -24,13 +29,23 @@ namespace Holoride.ElasticSDKTemplate
         private Vector2 targetScrollVelocity;
         private Vector2 previousAnchoredPosition;
 
-        public MenuButton LastSelected => this.lastSelected;
-
         private void Awake()
         {
             this.contentRectTransform = this.scrollRect.content.GetComponent<RectTransform>();
         }
 
+        /// <summary>
+        /// Instantiates and adds a MenuButton to the menu.
+        /// </summary>
+        /// <param name="text">
+        /// The text displayed on the button.
+        /// </param>
+        /// <param name="action">
+        /// The action to invoke if the button is pressed.
+        /// </param>
+        /// <returns>
+        /// The MenuButton that has been instantiated and added to the menu.
+        /// </returns>
         public Button AddButton(string text, UnityAction action)
         {
             var buttonGameObject = GameObject.Instantiate(this.buttonPrefab, this.scrollRect.content.transform);
@@ -47,6 +62,9 @@ namespace Holoride.ElasticSDKTemplate
             return button;
         }
 
+        /// <summary>
+        /// Restores the previous selection of the last selected MenuButton.
+        /// </summary>
         public void RestorePreviousSelection()
         {
             if (this.scrollRect.content.transform.childCount > 0)
@@ -63,7 +81,7 @@ namespace Holoride.ElasticSDKTemplate
             this.RestorePreviousSelection();
         }
 
-        public void SnapTo(RectTransform target)
+        private void SnapTo(RectTransform target)
         {
             Vector2 viewportLocalPosition = this.scrollRect.viewport.localPosition;
             Vector2 childLocalPosition = target.localPosition;
