@@ -24,7 +24,7 @@ namespace Holoride.ElasticSDKTemplate
         
         [Tooltip("The LocalizationEvents to disable before the scene unloads.")]
         [SerializeField] 
-        private LocalizationEvents localizationEvents;
+        private LocalizationEvents fadeLocalizationEvents;
         
         [Tooltip("The FadeToBackgroundManager to fade the scene in or out.")]
         [SerializeField] 
@@ -54,7 +54,7 @@ namespace Holoride.ElasticSDKTemplate
 
         private void Update()
         {
-            if (Input.anyKeyDown)
+            if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
             {
                 if (!this.canvas.activeInHierarchy && !isLoading)
                 {
@@ -84,9 +84,9 @@ namespace Holoride.ElasticSDKTemplate
 
             this.canvas.SetActive(false);
 
-            if (this.localizationEvents != null)
+            if (this.fadeLocalizationEvents != null)
             {
-                this.localizationEvents.enabled = false;
+                this.fadeLocalizationEvents.enabled = false;
             }
 
             if (this.fadeToBackgroundManager.CurrentAnimationSecond ==
