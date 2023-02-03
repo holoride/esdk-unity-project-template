@@ -9,7 +9,7 @@ namespace Holoride.ElasticSDKTemplate
     using UnityEngine.UI;
 
     /// <summary>
-    /// A simple manu to add MenuButton instances to.
+    /// A simple menu to add MenuButton instances to.
     /// </summary>
     public class Menu : MonoBehaviour
     {
