@@ -1,13 +1,15 @@
 // Copyright (c) holoride GmbH. All Rights Reserved.
 
-using System;
-
 namespace Holoride.ElasticSDKTemplate
 {
     using UnityEngine;
 
+    /// <summary>
+    /// Spins an object around every euler axis.
+    /// </summary>
     public class ObjectSpinner : MonoBehaviour
     {
+        [Tooltip("The speed of the spin animation.")]
         [SerializeField] 
         private float speed = 20;
 
