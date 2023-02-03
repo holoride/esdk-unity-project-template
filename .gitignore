@@ -62,3 +62,6 @@ crashlytics-build.properties
 ProjectSettings/ProjectVersion.txt
 UserSettings/
 Local/
+Local.meta
+build*
+**/.idea
