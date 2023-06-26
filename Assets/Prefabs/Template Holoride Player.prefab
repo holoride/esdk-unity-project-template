@@ -192,6 +192,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 642601838647895342, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
+      propertyPath: ShowDebugVisualization
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6512501221668302619, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -236,9 +240,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6512501221668302628, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
+      propertyPath: ShowDebugVisualization
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6512501221668302629, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
       propertyPath: m_Name
-      value: Holoride Player
+      value: Template Holoride Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
