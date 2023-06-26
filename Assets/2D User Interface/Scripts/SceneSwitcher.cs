@@ -2,6 +2,7 @@
 
 namespace Holoride.ElasticSDKTemplate
 {
+    using UnityEngine.Events;
     using ElasticSDK;
     using ElasticSDK.FadeToBackground.BuildInRenderPipeline;
     using UnityEngine;
@@ -29,6 +30,14 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("The FadeToBackgroundManager to fade the scene in or out.")]
         [SerializeField] 
         private FadeToBackgroundManager fadeToBackgroundManager;
+        
+        [Tooltip("Gets invoked when the menu gets opened.")]
+        [SerializeField] 
+        private UnityEvent onMenuOpened;
+        
+        [Tooltip("Gets invoked when the menu gets closed.")]
+        [SerializeField] 
+        private UnityEvent onMenuClosed;
         
         private bool isLoading = false;
 
@@ -59,12 +68,14 @@ namespace Holoride.ElasticSDKTemplate
                 if (!this.canvas.activeInHierarchy && !isLoading)
                 {
                     this.canvas.SetActive(true);
+                    this.onMenuOpened.Invoke();
                 }
                 else
                 {
                     if (Input.GetButtonDown("Cancel"))
                     {
                         this.canvas.SetActive(false);
+                        this.onMenuClosed.Invoke();
                     }
 
                     this.menu.RestorePreviousSelection();
