@@ -64,12 +64,6 @@
       },
       "url": "https://npm-registry.vive.com"
     },
-    "com.jbooth.microsplat.core": {
-      "version": "file:com.jbooth.microsplat.core",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "com.unity.collab-proxy": {
       "version": "1.17.1",
       "depth": 0,
