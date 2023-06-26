@@ -15,7 +15,7 @@
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
     "com.holoride.elasticsdk": {
-      "version": "0.22.7",
+      "version": "0.23.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -24,23 +24,24 @@
         "com.unity.nuget.newtonsoft-json": "2.0.2",
         "com.unity.editorcoroutines": "1.0.0",
         "com.unity.ugui": "1.0.0",
-        "com.holoride.elasticsdk.servicesdk.android": "1.0.3"
+        "com.holoride.elasticsdk.servicesdk.android": "3.0.0",
+        "com.holoride.oauth": "1.0.3"
       },
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
     "com.holoride.elasticsdk.content2dtools": {
-      "version": "0.1.1",
+      "version": "0.2.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.cysharp.unitask": "2.3.1",
-        "com.holoride.elasticsdk.servicesdk.android": "1.0.3",
-        "com.holoride.elasticsdk": "0.21.6"
+        "com.holoride.elasticsdk.servicesdk.android": "3.0.0",
+        "com.holoride.elasticsdk": "0.23.0"
       },
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
     "com.holoride.elasticsdk.fadetobackground.builtinrp": {
-      "version": "0.1.1",
+      "version": "0.1.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -49,10 +50,20 @@
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
     "com.holoride.elasticsdk.servicesdk.android": {
-      "version": "1.0.3",
+      "version": "3.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
+    },
+    "com.holoride.oauth": {
+      "version": "1.0.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.cysharp.unitask": "2.3.1",
+        "com.unity.nuget.newtonsoft-json": "2.0.2"
+      },
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
     "com.htc.upm.wave.xrsdk": {
