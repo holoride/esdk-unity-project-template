@@ -40,7 +40,7 @@
       "url": "https://holoride.jfrog.io/artifactory/api/npm/creatorspace-upm-production"
     },
     "com.holoride.elasticsdk.fadetobackground.builtinrp": {
-      "version": "0.1.0",
+      "version": "0.1.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -63,6 +63,12 @@
         "com.unity.xr.management": "3.2.4"
       },
       "url": "https://npm-registry.vive.com"
+    },
+    "com.jbooth.microsplat.core": {
+      "version": "file:com.jbooth.microsplat.core",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.unity.collab-proxy": {
       "version": "1.17.1",
@@ -121,6 +127,13 @@
     },
     "com.unity.ide.vscode": {
       "version": "1.2.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.mobile.android-logcat": {
+      "version": "1.3.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
