@@ -59,7 +59,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Template specific files
-ProjectSettings/ProjectVersion.txt
 UserSettings/
 Local/
 Local.meta
