@@ -63,6 +63,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
+  speedLimits: 0
 --- !u!114 &-2023519290942491214
 MonoBehaviour:
   m_ObjectHideFlags: 0
