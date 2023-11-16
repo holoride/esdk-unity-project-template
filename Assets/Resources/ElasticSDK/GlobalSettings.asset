@@ -18,8 +18,5 @@ MonoBehaviour:
   laneWidth: 4
   roadSideWidth: 4
   defaultLaneCount: 2
-  minimumImportCoordinateDistance: 5
-  defaultRouteSpeed: 50
-  logDownloadURLs: 0
-  logNodeTimings: 0
+  enableVerboseLogging: 0
   logToFile: 0
