@@ -341,6 +341,10 @@ PrefabInstance:
       value: Template Holoride Player
       objectReference: {fileID: 0}
     - target: {fileID: 5907652341817736204, guid: 8e4f479a5d400d248bb0bafdcca6a592, type: 3}
+      propertyPath: levelSwitcher
+      value: 
+      objectReference: {fileID: 1153722716}
+    - target: {fileID: 5907652341817736204, guid: 8e4f479a5d400d248bb0bafdcca6a592, type: 3}
       propertyPath: localizationEvents
       value: 
       objectReference: {fileID: 1760444974}
@@ -383,6 +387,25 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 963194227, guid: 8e4f479a5d400d248bb0bafdcca6a592, type: 3}
   m_PrefabInstance: {fileID: 1153722713}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1153722715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2723013428470947489, guid: 8e4f479a5d400d248bb0bafdcca6a592, type: 3}
+  m_PrefabInstance: {fileID: 1153722713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1153722716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153722715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddf778154df9f841a00f3e9e3c86710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLocalizationEvents: {fileID: 1760444974}
+  fadeToBackgroundManager: {fileID: 1760444973}
 --- !u!1001 &1261147965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -506,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192bc729ba7efab4ebdf7f44b7c6859e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1153722714}
+  fadeCenterCamera: {fileID: 1153722714}
   elasticSceneGenerator: {fileID: 1261147966}
   cutoffDistanceToBounds: 200
   cutoffApplySeconds: 1

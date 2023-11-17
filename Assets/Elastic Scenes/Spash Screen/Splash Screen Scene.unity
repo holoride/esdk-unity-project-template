@@ -561,6 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ddf778154df9f841a00f3e9e3c86710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeLocalizationEvents: {fileID: 1760444974}
+  fadeToBackgroundManager: {fileID: 1760444973}
 --- !u!1 &1483128633
 GameObject:
   m_ObjectHideFlags: 0

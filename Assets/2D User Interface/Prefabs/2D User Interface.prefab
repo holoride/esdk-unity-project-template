@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 8787916083273436236}
   - component: {fileID: 8787916083273436239}
   - component: {fileID: 991592182288314080}
+  - component: {fileID: 3809085640183173281}
   m_Layer: 0
   m_Name: 2D User Interface
   m_TagString: Untagged
@@ -217,7 +218,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 8374776765501940074}
   canvas: {fileID: 8787916083705389231}
-  localizationEvents: {fileID: 0}
+  levelSwitcher: {fileID: 3809085640183173281}
+  onMenuOpened:
+    m_PersistentCalls:
+      m_Calls: []
+  onMenuClosed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3809085640183173281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787916083273436237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddf778154df9f841a00f3e9e3c86710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLocalizationEvents: {fileID: 0}
   fadeToBackgroundManager: {fileID: 0}
 --- !u!1 &8787916083705389231
 GameObject:
