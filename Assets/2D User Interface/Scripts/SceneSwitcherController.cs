@@ -3,17 +3,13 @@
 namespace Holoride.ElasticSDKTemplate
 {
     using UnityEngine.Events;
-    using ElasticSDK;
-    using ElasticSDK.FadeToBackground.BuildInRenderPipeline;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
     /// <summary>
-    /// Controls the UI to select and switch to another scene, or reload the current scene. Triggers the fadeout
-    /// animation on scene changes if the FadeToBackgroundManager is linked. Disables a LocalizationEvent component to
-    /// not interrupt an ongoing fadeout animation before a scene change. 
+    /// Controls the UI to select and switch to another scene, or reload the current scene.
     /// </summary>
-    public class SceneSwitcher : MonoBehaviour
+    public class SceneSwitcherController : MonoBehaviour
     {
         [Tooltip("The menu to display the scene selection.")]
         [SerializeField]
@@ -22,14 +18,10 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("The canvas to toggle the UI.")]
         [SerializeField] 
         private GameObject canvas;
-        
+
         [Tooltip("The LocalizationEvents to disable before the scene unloads.")]
         [SerializeField] 
-        private LocalizationEvents fadeLocalizationEvents;
-        
-        [Tooltip("The FadeToBackgroundManager to fade the scene in or out.")]
-        [SerializeField] 
-        private FadeToBackgroundManager fadeToBackgroundManager;
+        private LevelSwitcher levelSwitcher;
         
         [Tooltip("Gets invoked when the menu gets opened.")]
         [SerializeField] 
@@ -39,7 +31,7 @@ namespace Holoride.ElasticSDKTemplate
         [SerializeField] 
         private UnityEvent onMenuClosed;
         
-        private bool isLoading = false;
+        private bool isChangingLevel = false;
 
         private void Awake()
         {
@@ -57,7 +49,12 @@ namespace Holoride.ElasticSDKTemplate
                     ? $"{sceneName}<line-height=0>\n<align=right>(reload)<line-height=1em>"
                     : sceneName;
 
-                this.menu.AddButton(buttonText, () => this.LoadScene(sceneName));
+                this.menu.AddButton(buttonText, () =>
+                {
+                    this.isChangingLevel = true;
+                    this.canvas.SetActive(false);
+                    this.levelSwitcher.SwitchLevel(sceneName);
+                });
             }
         }
 
@@ -65,7 +62,7 @@ namespace Holoride.ElasticSDKTemplate
         {
             if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
             {
-                if (!this.canvas.activeInHierarchy && !isLoading)
+                if (!this.canvas.activeInHierarchy && !isChangingLevel)
                 {
                     this.canvas.SetActive(true);
                     this.onMenuOpened.Invoke();
@@ -80,36 +77,6 @@ namespace Holoride.ElasticSDKTemplate
 
                     this.menu.RestorePreviousSelection();
                 }
-            }
-        }
-
-        private void LoadScene(string scene)
-        {
-            this.isLoading = true;
-
-            if (this.fadeToBackgroundManager == null)
-            {
-                SceneManager.LoadScene(scene);
-                return;
-            }
-
-            this.canvas.SetActive(false);
-
-            if (this.fadeLocalizationEvents != null)
-            {
-                this.fadeLocalizationEvents.enabled = false;
-            }
-
-            if (this.fadeToBackgroundManager.CurrentAnimationSecond ==
-                this.fadeToBackgroundManager.AnimationBeginSecond)
-            {
-                SceneManager.LoadScene(scene);
-            }
-            else
-            {
-                this.fadeToBackgroundManager.OnDisappearAnimationFinished.AddListener(() =>
-                    SceneManager.LoadScene(scene));
-                this.fadeToBackgroundManager.PlayDisappearAnimation();
             }
         }
     }

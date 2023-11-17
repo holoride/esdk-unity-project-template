@@ -250,6 +250,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
+--- !u!114 &484393926862601839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6522915278984570023, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
+  m_PrefabInstance: {fileID: 6647002262438124232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f5257f0bf44379873c03085fe68089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7082235447387971815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4501280527984818735, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
@@ -262,6 +273,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7082235447387971815}
     m_Modifications:
+    - target: {fileID: 3809085640183173281, guid: 51ceca246a420ac42a7e1b82c75e6c0c, type: 3}
+      propertyPath: fadeLocalizationEvents
+      value: 
+      objectReference: {fileID: 484393926862601839}
     - target: {fileID: 3826547234474155018, guid: 51ceca246a420ac42a7e1b82c75e6c0c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
