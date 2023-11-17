@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Elastic Scenes/Spash Screen/Splash Screen Scene.unity
+    guid: 1cc499cc3a72a8b46b957bd47ab30c4b
+  - enabled: 1
     path: Assets/Elastic Scenes/Robust Elastic Scene/Robust Elastic Scene.unity
     guid: a8a51d48b13ad5c459c1aef38e0339ec
   - enabled: 1
