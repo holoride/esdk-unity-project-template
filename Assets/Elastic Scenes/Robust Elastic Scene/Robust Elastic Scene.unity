@@ -602,9 +602,6 @@ MonoBehaviour:
           m_StringArgument: LocalizationQualityIssue
           m_BoolArgument: 0
         m_CallState: 2
-  OnErrorOccured:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1760444976
 Transform:
   m_ObjectHideFlags: 0

@@ -705,7 +705,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    Android: USE_VIVE_WAVE_XR_5_1_1
+    Android: USE_VIVE_WAVE_XR_5_3_1
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
