@@ -35,8 +35,7 @@ namespace Holoride.ElasticSDKTemplate
                 this.fadeLocalizationEvents.enabled = false;
             }
 
-            if (this.fadeToBackgroundManager.CurrentAnimationSecond ==
-                this.fadeToBackgroundManager.AnimationBeginSecond)
+            if (IsLevelCompletelyFadedOut())
             {
                 SceneManager.LoadScene(levelName);
             }
@@ -46,6 +45,11 @@ namespace Holoride.ElasticSDKTemplate
                     SceneManager.LoadScene(levelName));
                 this.fadeToBackgroundManager.PlayDisappearAnimation();
             }
+        }
+
+        private bool IsLevelCompletelyFadedOut()
+        {
+            return !this.fadeToBackgroundManager.IsPlayingForward && this.fadeToBackgroundManager.CurrentAnimationSecond <= this.fadeToBackgroundManager.AnimationEndSecond;
         }
     }
 }
