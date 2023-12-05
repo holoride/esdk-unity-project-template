@@ -298,6 +298,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1175468240523808903, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
+      propertyPath: shiftManager
+      value: 
+      objectReference: {fileID: 1666948366}
+    - target: {fileID: 1175468240523808903, guid: ab72673998a0b2f40ae8e8c8e47007e8, type: 3}
       propertyPath: SceneDefinition
       value: 
       objectReference: {fileID: 7614709414978874049, guid: 55746004ff0ce5c4cbc727d741672ebf, type: 2}
@@ -379,6 +383,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4266033028540407153, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
   m_PrefabInstance: {fileID: 1799776892}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1666948366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4782006661347907703, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
+  m_PrefabInstance: {fileID: 1799776892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676440ea771d471db73e655feb1da97e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1760444972
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,8 +430,8 @@ MonoBehaviour:
   cutoffDistanceToBounds: 200
   cutoffApplySeconds: 1
   maxOpacity: 1
-  maxOpaqueDistance: 100
-  maxTransparentDistance: 1000
+  maxOpaqueDistance: 0
+  maxTransparentDistance: 200
   behaviorOnEnable: 3
   animationType: 0
   animationCurve:
@@ -551,12 +566,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
-      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: nextScene
+      value: Robust Elastic Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
+      propertyPath: sceneTransitionController
       value: 
       objectReference: {fileID: 1760444977}
     - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
+      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1760444972}
+    - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
       propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TransitionToScene
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
       propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
