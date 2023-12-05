@@ -3,7 +3,6 @@
 namespace Holoride.ElasticSDKTemplate
 {
     using System.Collections.Generic;
-    using UnityEditor;
     using UnityEngine.Events;
     using UnityEngine;
     using UnityEngine.SceneManagement;
@@ -15,7 +14,7 @@ namespace Holoride.ElasticSDKTemplate
     public class SceneSwitcher : MonoBehaviour
     {
         [Tooltip("The scenes to switch in the background.")]
-        [SerializeField] private List<SceneAsset> switchableScenes;
+        [SerializeField] private List<string> switchableScenes;
         
         [Tooltip("The menu to display the scene selection.")]
         [SerializeField]
@@ -51,10 +50,8 @@ namespace Holoride.ElasticSDKTemplate
 
             int sceneCount = SceneManager.sceneCountInBuildSettings;
 
-            foreach (var scene in this.switchableScenes)
+            foreach (var sceneName in this.switchableScenes)
             {
-                string sceneName = scene.name;
-
                 string buttonText = sceneName == SceneManager.GetActiveScene().name
                     ? $"{sceneName}<line-height=0>\n<align=right>(reload)<line-height=1em>"
                     : sceneName;

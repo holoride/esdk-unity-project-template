@@ -257,9 +257,9 @@ MonoBehaviour:
   generationOrigin: {fileID: 920017911}
   sceneSwitcher: {fileID: 153690979}
   autoSwitchingSubscenes:
-  - {fileID: 102900000, guid: 62be08daac1ef7947a19028c00d8eb1d, type: 3}
-  - {fileID: 102900000, guid: 5a506be5474ee884ebadaaf7878ddd8f, type: 3}
-  - {fileID: 102900000, guid: 840648a40baf93443b65e82e38c5b7e8, type: 3}
+  - Subscene Cubes
+  - Subscene Cylinders
+  - Subscene Spheres
   autoSwitchAfterSeconds: 10
 --- !u!4 &416066000
 Transform:
