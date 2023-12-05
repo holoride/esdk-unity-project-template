@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1804789579461077453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7330a3ca005196499f693a90064dd32, type: 3}
+  m_Name: Cylinders
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 0, y: 0}
+  ports:
+    keys:
+    - Heightmap
+    - TextureLayers
+    - Spawners
+    values:
+    - _fieldName: Heightmap
+      _node: {fileID: -1804789579461077453}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: TextureLayers
+      _node: {fileID: -1804789579461077453}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.TextureLayerNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Spawners
+      _node: {fileID: -1804789579461077453}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Spawners.SpawnerNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Output
+        node: {fileID: 6473188868557530942}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  Heightmap: {fileID: 0}
+  TextureLayers: {fileID: 0}
+  Spawners: {fileID: 0}
+  OutputNodeNames: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717c2ab5edc36fe40a3c9ba044c0379e, type: 3}
+  m_Name: Cylinders
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1804789579461077453}
+  - {fileID: 6473188868557530942}
+--- !u!114 &6473188868557530942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46f1dd43adcbb94096425483cbe7e42, type: 3}
+  m_Name: Grid Spawner
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -360, y: -104}
+  ports:
+    keys:
+    - PrefabList
+    - Heightmap
+    - PermittedArea
+    - Output
+    values:
+    - _fieldName: PrefabList
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.DataProviders.DataProviderNode`1[[UnityEngine.GameObject,
+        UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        Holoride.ElasticSDK.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Heightmap
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: PermittedArea
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Maps.MapNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Output
+      _node: {fileID: 6473188868557530942}
+      _typeQualifiedName: Holoride.ElasticSDK.Graph.Spawners.SpawnerNode, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Spawners
+        node: {fileID: -1804789579461077453}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Output: {fileID: 0}
+  Extents: 400
+  EligibleForInjection: 0
+  Heightmap: {fileID: 0}
+  PermittedArea: {fileID: 0}
+  PermittedAreaThreshold: 0
+  GridCellSize: 20
+  Prefab: {fileID: 607722134876580759, guid: 33d24d1e26e4c6842887173109497dba, type: 3}
+  PrefabList: {fileID: 0}
+  Jittering: 0
+  Scale:
+    Min: 1
+    Max: 1
+  TranslateY:
+    Min: 0
+    Max: 0
+  RotateX:
+    Min: 0
+    Max: 0
+  RotateY:
+    Min: 0
+    Max: 0
+  RotateZ:
+    Min: 0
+    Max: 0

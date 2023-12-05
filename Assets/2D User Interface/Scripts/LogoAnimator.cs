@@ -5,6 +5,7 @@ namespace Holoride.ElasticSDKTemplate
     using System;
     using System.Collections.Generic;
     using Cysharp.Threading.Tasks;
+    using UnityEditor;
     using UnityEngine;
     using UnityEngine.Events;
 

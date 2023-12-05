@@ -2,15 +2,21 @@
 
 namespace Holoride.ElasticSDKTemplate
 {
+    using System.Collections.Generic;
+    using UnityEditor;
     using UnityEngine.Events;
     using UnityEngine;
     using UnityEngine.SceneManagement;
+    using UnityEngine.Serialization;
 
     /// <summary>
     /// Controls the UI to select and switch to another scene, or reload the current scene.
     /// </summary>
-    public class SceneSwitcherController : MonoBehaviour
+    public class SceneSwitcher : MonoBehaviour
     {
+        [Tooltip("The scenes to switch in the background.")]
+        [SerializeField] private List<SceneAsset> switchableScenes;
+        
         [Tooltip("The menu to display the scene selection.")]
         [SerializeField]
         private Menu menu;
@@ -18,10 +24,11 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("The canvas to toggle the UI.")]
         [SerializeField] 
         private GameObject canvas;
-
+        
+        [FormerlySerializedAs("sceneSwitcher")]
         [Tooltip("The LocalizationEvents to disable before the scene unloads.")]
         [SerializeField] 
-        private LevelSwitcher levelSwitcher;
+        private SceneTransitionController sceneTransitionController;
         
         [Tooltip("Gets invoked when the menu gets opened.")]
         [SerializeField] 
@@ -33,17 +40,21 @@ namespace Holoride.ElasticSDKTemplate
         
         private bool isChangingLevel = false;
 
+        public SceneTransitionController SceneTransitionController
+        {
+            get => this.sceneTransitionController;
+            set => this.sceneTransitionController = value;
+        }
+
         private void Awake()
         {
             this.canvas.SetActive(false);
 
             int sceneCount = SceneManager.sceneCountInBuildSettings;
 
-            for (int i = 0; i < sceneCount; i++)
+            foreach (var scene in this.switchableScenes)
             {
-                // this is a workaround due to this issue: https://forum.unity.com/threads/getscenebybuildindex-problem.452560
-                string path = SceneUtility.GetScenePathByBuildIndex(i);
-                string sceneName = path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1);
+                string sceneName = scene.name;
 
                 string buttonText = sceneName == SceneManager.GetActiveScene().name
                     ? $"{sceneName}<line-height=0>\n<align=right>(reload)<line-height=1em>"
@@ -53,7 +64,15 @@ namespace Holoride.ElasticSDKTemplate
                 {
                     this.isChangingLevel = true;
                     this.canvas.SetActive(false);
-                    this.levelSwitcher.SwitchLevel(sceneName);
+
+                    if (this.sceneTransitionController == null)
+                    {
+                        SceneManager.LoadScene(sceneName);
+                    }
+                    else
+                    {
+                        this.sceneTransitionController.PlayFinalDisappearAnimation(() => SceneManager.LoadScene(sceneName));
+                    }
                 });
             }
         }

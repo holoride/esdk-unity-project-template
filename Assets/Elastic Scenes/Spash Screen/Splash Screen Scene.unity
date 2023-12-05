@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 1760444976}
   - component: {fileID: 1760444974}
   - component: {fileID: 1760444973}
+  - component: {fileID: 1760444977}
   m_Layer: 0
   m_Name: Fade To Background Manager
   m_TagString: Untagged
@@ -513,9 +514,6 @@ MonoBehaviour:
           m_StringArgument: LocalizationQualityIssue
           m_BoolArgument: 0
         m_CallState: 2
-  OnErrorOccured:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1760444976
 Transform:
   m_ObjectHideFlags: 0
@@ -531,6 +529,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760444977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760444972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddf778154df9f841a00f3e9e3c86710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeLocalizationEvents: {fileID: 1760444974}
+  fadeToBackgroundManager: {fileID: 1760444973}
 --- !u!1001 &1799776892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -538,6 +550,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
+      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1760444977}
+    - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
+      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransitionToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
+      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Holoride.ElasticSDKTemplate.SceneTransitionController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4266033028540407119, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
       propertyPath: m_Name
       value: Holoride Player SplashScreen Variant
@@ -586,9 +610,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4699461837739407771, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
-      propertyPath: fadeToBackgroundManager
-      value: 
-      objectReference: {fileID: 1760444973}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
