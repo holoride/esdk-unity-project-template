@@ -6,7 +6,6 @@ namespace Holoride.ElasticSDKTemplate
     using UnityEngine.Events;
     using UnityEngine;
     using UnityEngine.SceneManagement;
-    using UnityEngine.Serialization;
 
     /// <summary>
     /// Controls the UI to select and switch to another scene, or reload the current scene.
@@ -47,8 +46,6 @@ namespace Holoride.ElasticSDKTemplate
         private void Awake()
         {
             this.canvas.SetActive(false);
-
-            int sceneCount = SceneManager.sceneCountInBuildSettings;
 
             foreach (var sceneName in this.switchableScenes)
             {
