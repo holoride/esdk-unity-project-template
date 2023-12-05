@@ -2,17 +2,17 @@
 
 namespace Holoride.ElasticSDKTemplate
 {
+    using System;
     using Holoride.ElasticSDK;
     using Holoride.ElasticSDK.FadeToBackground.BuildInRenderPipeline;
     using UnityEngine;
-    using UnityEngine.SceneManagement;
 
     ///<summary>
-    /// Component to control level transitions.
+    /// Component to control scene transitions.
     /// Triggers the fadeout animation on scene changes if the FadeToBackgroundManager is linked.
     /// Disables a LocalizationEvent component to not interrupt an ongoing fadeout animation before a scene change.
     /// </summary>
-    public class LevelSwitcher : MonoBehaviour
+    public class SceneTransitionController : MonoBehaviour
     {
         [Tooltip("The LocalizationEvents to disable before the scene unloads.")] 
         [SerializeField]
@@ -22,11 +22,11 @@ namespace Holoride.ElasticSDKTemplate
         [SerializeField]
         private FadeToBackgroundManager fadeToBackgroundManager;
 
-        public void SwitchLevel(string levelName)
+        public void PlayFinalDisappearAnimation(Action onDisappearAnimationFinished)
         {
             if (this.fadeToBackgroundManager == null)
             {
-                SceneManager.LoadScene(levelName);
+                onDisappearAnimationFinished.Invoke();
                 return;
             }
 
@@ -37,12 +37,12 @@ namespace Holoride.ElasticSDKTemplate
 
             if (IsLevelCompletelyFadedOut())
             {
-                SceneManager.LoadScene(levelName);
+                onDisappearAnimationFinished.Invoke();
             }
             else
             {
                 this.fadeToBackgroundManager.OnDisappearAnimationFinished.AddListener(() =>
-                    SceneManager.LoadScene(levelName));
+                    onDisappearAnimationFinished.Invoke());
                 this.fadeToBackgroundManager.PlayDisappearAnimation();
             }
         }

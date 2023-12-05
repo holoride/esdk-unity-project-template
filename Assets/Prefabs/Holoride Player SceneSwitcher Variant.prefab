@@ -452,29 +452,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dac3b438fb108c4794524413beec498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchableScenes:
+  - {fileID: 102900000, guid: a8a51d48b13ad5c459c1aef38e0339ec, type: 3}
+  - {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+  - {fileID: 102900000, guid: 8f0b043858907724ca2ebe5c346681f9, type: 3}
   menu: {fileID: 7247532174791808764}
   canvas: {fileID: 6002136162265600072}
-  levelSwitcher: {fileID: 8326598020669504649}
+  sceneTransitionController: {fileID: 0}
   onMenuOpened:
     m_PersistentCalls:
       m_Calls: []
   onMenuClosed:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8326598020669504649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6002136161824881834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ddf778154df9f841a00f3e9e3c86710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeLocalizationEvents: {fileID: 8086530843225906276}
-  fadeToBackgroundManager: {fileID: 0}
 --- !u!1 &6002136162265600072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2723013427837940291, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
@@ -512,14 +502,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2723013427837940290, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
   m_PrefabInstance: {fileID: 8539327648973201931}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8086530843225906276 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 484393926862601839, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
-  m_PrefabInstance: {fileID: 8539327648973201931}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f5257f0bf44379873c03085fe68089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
