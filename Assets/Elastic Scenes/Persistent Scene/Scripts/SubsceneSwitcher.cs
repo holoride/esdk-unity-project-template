@@ -4,7 +4,7 @@ namespace Holoride.ElasticSDKTemplate
 {
     using System.Collections;
     using System.Collections.Generic;
-    using Holoride.ElasticSDK;
+    using ElasticSDK;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 

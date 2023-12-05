@@ -3,8 +3,8 @@
 namespace Holoride.ElasticSDKTemplate
 {
     using System;
-    using Holoride.ElasticSDK;
-    using Holoride.ElasticSDK.FadeToBackground.BuildInRenderPipeline;
+    using ElasticSDK;
+    using ElasticSDK.FadeToBackground.BuildInRenderPipeline;
     using UnityEngine;
 
     ///<summary>
