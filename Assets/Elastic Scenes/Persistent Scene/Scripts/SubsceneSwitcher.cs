@@ -1,89 +1,89 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Holoride.ElasticSDK;
-using Holoride.ElasticSDKTemplate;
-using UnityEditor;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+// Copyright (c) holoride GmbH. All Rights Reserved.
 
-public class SubsceneSwitcher : MonoBehaviour
+namespace Holoride.ElasticSDKTemplate
 {
-    [Tooltip("The generation origin.")]
-    [SerializeField] 
-    private Transform generationOrigin;
-    
-    [Tooltip("The scene switcher.")]
-    [SerializeField] 
-    private SceneSwitcher sceneSwitcher;
-    
-    [Tooltip("The scenes to switch automatically. Automatic switching is disabled if the list is empty.")]
-    [SerializeField] 
-    private List<SceneAsset> autoSwitchingSubscenes;
-    
-    [Tooltip("The time interval in seconds before the next switch.")]
-    [SerializeField] 
-    private float autoSwitchAfterSeconds = 10;
-    
-    private SceneAsset currentScene = null;
+    using System.Collections;
+    using System.Collections.Generic;
+    using Holoride.ElasticSDK;
+    using UnityEditor;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
 
-    private void Start()
+    public class SubsceneSwitcher : MonoBehaviour
     {
-        if (this.autoSwitchingSubscenes.Count > 0)
-        {
-            StartCoroutine(this.KeepSwitchingEnvironments());
-        }
-    }
+        [Tooltip("The generation origin.")] [SerializeField]
+        private Transform generationOrigin;
 
-    private IEnumerator KeepSwitchingEnvironments()
-    {
-        var waitForInterval = new WaitForSeconds(this.autoSwitchAfterSeconds);
-        
-        for (var i = 0;; i = (i + 1) % this.autoSwitchingSubscenes.Count)
-        {
-            this.SwitchSubscene(this.autoSwitchingSubscenes[i]);
-            yield return waitForInterval;
-        }
-    }
+        [Tooltip("The scene switcher.")] [SerializeField]
+        private SceneSwitcher sceneSwitcher;
 
-    public void SwitchSubscene(SceneAsset scene)
-    {
-        if (this.currentScene == null)
+        [Tooltip("The scenes to switch automatically. Automatic switching is disabled if the list is empty.")]
+        [SerializeField]
+        private List<SceneAsset> autoSwitchingSubscenes;
+
+        [Tooltip("The time interval in seconds before the next switch.")] [SerializeField]
+        private float autoSwitchAfterSeconds = 10;
+
+        private SceneAsset currentScene = null;
+
+        private void Start()
         {
-            this.LoadAndConnectScene(scene);
-            return;
-        }
-        
-        if (this.sceneSwitcher.SceneTransitionController == null)
-        {
-            SceneManager.UnloadSceneAsync(this.currentScene.name);
-            this.LoadAndConnectScene(scene);
-            return;
+            if (this.autoSwitchingSubscenes.Count > 0)
+            {
+                StartCoroutine(this.KeepSwitchingEnvironments());
+            }
         }
 
-        this.sceneSwitcher.SceneTransitionController.PlayFinalDisappearAnimation(() =>
+        private IEnumerator KeepSwitchingEnvironments()
         {
-            SceneManager.UnloadSceneAsync(this.currentScene.name);
-            this.LoadAndConnectScene(scene);
-        });
-    }
+            var waitForInterval = new WaitForSeconds(this.autoSwitchAfterSeconds);
 
-    private void OnDestroy()
-    {
-        if (this.currentScene != null)
-        {
-            SceneManager.UnloadScene(this.currentScene.name);
+            for (var i = 0;; i = (i + 1) % this.autoSwitchingSubscenes.Count)
+            {
+                this.SwitchSubscene(this.autoSwitchingSubscenes[i]);
+                yield return waitForInterval;
+            }
         }
-    }
 
-    private void LoadAndConnectScene(SceneAsset scene)
-    {
-        this.currentScene = scene;
-        var a = SceneManager.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
-        a.completed += _ =>
+        public void SwitchSubscene(SceneAsset scene)
         {
-            FindObjectOfType<ElasticSceneGenerator>().GenerationOrigin = this.generationOrigin;
-            this.sceneSwitcher.SceneTransitionController = FindObjectOfType<SceneTransitionController>();
-        };
+            if (this.currentScene == null)
+            {
+                this.LoadAndConnectScene(scene);
+                return;
+            }
+
+            if (this.sceneSwitcher.SceneTransitionController == null)
+            {
+                SceneManager.UnloadSceneAsync(this.currentScene.name);
+                this.LoadAndConnectScene(scene);
+                return;
+            }
+
+            this.sceneSwitcher.SceneTransitionController.PlayFinalDisappearAnimation(() =>
+            {
+                SceneManager.UnloadSceneAsync(this.currentScene.name);
+                this.LoadAndConnectScene(scene);
+            });
+        }
+
+        private void OnDestroy()
+        {
+            if (this.currentScene != null)
+            {
+                SceneManager.UnloadScene(this.currentScene.name);
+            }
+        }
+
+        private void LoadAndConnectScene(SceneAsset scene)
+        {
+            this.currentScene = scene;
+            var a = SceneManager.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
+            a.completed += _ =>
+            {
+                FindObjectOfType<ElasticSceneGenerator>().GenerationOrigin = this.generationOrigin;
+                this.sceneSwitcher.SceneTransitionController = FindObjectOfType<SceneTransitionController>();
+            };
+        }
     }
 }

@@ -24,8 +24,7 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("The canvas to toggle the UI.")]
         [SerializeField] 
         private GameObject canvas;
-        
-        [FormerlySerializedAs("sceneSwitcher")]
+
         [Tooltip("The LocalizationEvents to disable before the scene unloads.")]
         [SerializeField] 
         private SceneTransitionController sceneTransitionController;
