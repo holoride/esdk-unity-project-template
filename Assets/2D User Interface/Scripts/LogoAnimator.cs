@@ -7,6 +7,7 @@ namespace Holoride.ElasticSDKTemplate
     using Cysharp.Threading.Tasks;
     using UnityEngine;
     using UnityEngine.Events;
+    using UnityEngine.SceneManagement;
 
     public class LogoAnimator : MonoBehaviour
     {
@@ -17,7 +18,8 @@ namespace Holoride.ElasticSDKTemplate
         [SerializeField] private AnimationCurve FadeInCurve = AnimationCurve.EaseInOut(0f, 0f, 0.5f, 1f);
         [SerializeField] private AnimationCurve FadeOutCurve = AnimationCurve.EaseInOut(0f, 1f, 0.5f, 0f);
 
-        [SerializeField] public UnityEvent OnSplashScreensShown;
+        [SerializeField] private SceneTransitionController sceneTransitionController;
+        [SerializeField] private string nextScene;
 
         private void Start()
         {
@@ -38,7 +40,7 @@ namespace Holoride.ElasticSDKTemplate
                 await AnimateLogo(group);
             }
 
-            OnSplashScreensShown?.Invoke();
+            sceneTransitionController.PlayFinalDisappearAnimation(() => SceneManager.LoadScene(this.nextScene));
         }
 
         private async UniTask AnimateLogo(CanvasGroup group)
