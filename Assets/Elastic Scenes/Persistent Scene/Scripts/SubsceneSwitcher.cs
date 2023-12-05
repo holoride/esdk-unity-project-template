@@ -5,7 +5,6 @@ namespace Holoride.ElasticSDKTemplate
     using System.Collections;
     using System.Collections.Generic;
     using Holoride.ElasticSDK;
-    using UnityEditor;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
@@ -14,17 +13,17 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("The generation origin.")] [SerializeField]
         private Transform generationOrigin;
 
-        [Tooltip("The scene switcher.")] [SerializeField]
+        [Tooltip("The sceneName switcher.")] [SerializeField]
         private SceneSwitcher sceneSwitcher;
 
         [Tooltip("The scenes to switch automatically. Automatic switching is disabled if the list is empty.")]
         [SerializeField]
-        private List<SceneAsset> autoSwitchingSubscenes;
+        private List<string> autoSwitchingSubscenes;
 
         [Tooltip("The time interval in seconds before the next switch.")] [SerializeField]
         private float autoSwitchAfterSeconds = 10;
 
-        private SceneAsset currentScene = null;
+        private string currentSceneName = null;
 
         private void Start()
         {
@@ -45,40 +44,40 @@ namespace Holoride.ElasticSDKTemplate
             }
         }
 
-        public void SwitchSubscene(SceneAsset scene)
+        public void SwitchSubscene(string sceneName)
         {
-            if (this.currentScene == null)
+            if (this.currentSceneName == null)
             {
-                this.LoadAndConnectScene(scene);
+                this.LoadAndConnectScene(sceneName);
                 return;
             }
 
             if (this.sceneSwitcher.SceneTransitionController == null)
             {
-                SceneManager.UnloadSceneAsync(this.currentScene.name);
-                this.LoadAndConnectScene(scene);
+                SceneManager.UnloadSceneAsync(this.currentSceneName);
+                this.LoadAndConnectScene(sceneName);
                 return;
             }
 
             this.sceneSwitcher.SceneTransitionController.PlayFinalDisappearAnimation(() =>
             {
-                SceneManager.UnloadSceneAsync(this.currentScene.name);
-                this.LoadAndConnectScene(scene);
+                SceneManager.UnloadSceneAsync(this.currentSceneName);
+                this.LoadAndConnectScene(sceneName);
             });
         }
 
         private void OnDestroy()
         {
-            if (this.currentScene != null)
+            if (this.currentSceneName != null)
             {
-                SceneManager.UnloadScene(this.currentScene.name);
+                SceneManager.UnloadScene(this.currentSceneName);
             }
         }
 
-        private void LoadAndConnectScene(SceneAsset scene)
+        private void LoadAndConnectScene(string sceneName)
         {
-            this.currentScene = scene;
-            var a = SceneManager.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
+            this.currentSceneName = sceneName;
+            var a = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             a.completed += _ =>
             {
                 FindObjectOfType<ElasticSceneGenerator>().GenerationOrigin = this.generationOrigin;

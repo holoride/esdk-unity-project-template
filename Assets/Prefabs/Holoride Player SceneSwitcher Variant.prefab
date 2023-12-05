@@ -453,9 +453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchableScenes:
-  - {fileID: 102900000, guid: a8a51d48b13ad5c459c1aef38e0339ec, type: 3}
-  - {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-  - {fileID: 102900000, guid: 8f0b043858907724ca2ebe5c346681f9, type: 3}
+  - Robust Elastic Scene
+  - Persistent Scene
+  - Minimal Elastic Scene
   menu: {fileID: 7247532174791808764}
   canvas: {fileID: 6002136162265600072}
   sceneTransitionController: {fileID: 0}
