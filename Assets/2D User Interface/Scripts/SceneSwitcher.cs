@@ -60,11 +60,12 @@ namespace Holoride.ElasticSDKTemplate
 
                     if (this.sceneTransitionController == null)
                     {
-                        SceneManager.LoadScene(sceneName);
+                        SceneManager.LoadSceneAsync(sceneName);
                     }
                     else
                     {
-                        this.sceneTransitionController.PlayFinalDisappearAnimation(() => SceneManager.LoadScene(sceneName));
+                        this.sceneTransitionController.PlayFinalDisappearAnimation(
+                            () => SceneManager.LoadSceneAsync(sceneName));
                     }
                 });
             }
@@ -74,6 +75,7 @@ namespace Holoride.ElasticSDKTemplate
         {
             if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
             {
+                Debug.Log("SUBMIT isChangingLevel? " + isChangingLevel);
                 if (!this.canvas.activeInHierarchy && !isChangingLevel)
                 {
                     this.canvas.SetActive(true);

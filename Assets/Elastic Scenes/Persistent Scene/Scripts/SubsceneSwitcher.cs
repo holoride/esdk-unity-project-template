@@ -5,6 +5,7 @@ namespace Holoride.ElasticSDKTemplate
     using System.Collections;
     using System.Collections.Generic;
     using ElasticSDK;
+    using Unity.VisualScripting;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
@@ -23,9 +24,9 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("The time interval in seconds before the next switch.")] [SerializeField]
         private float autoSwitchAfterSeconds = 10;
 
-        private string currentSceneName = null;
+        private Scene currentSubscene = default(Scene);
 
-        private void Start()
+        private void Awake()
         {
             if (this.autoSwitchingSubscenes.Count > 0)
             {
@@ -39,50 +40,50 @@ namespace Holoride.ElasticSDKTemplate
 
             for (var i = 0;; i = (i + 1) % this.autoSwitchingSubscenes.Count)
             {
-                this.SwitchSubscene(this.autoSwitchingSubscenes[i]);
+                bool hasFadedOut = false;
+                if (this.sceneSwitcher.SceneTransitionController != null)
+                {
+                    this.sceneSwitcher.SceneTransitionController.PlayFinalDisappearAnimation(() => hasFadedOut = true);
+                }
+                else
+                {
+                    hasFadedOut = true;
+                }
+                
+                yield return new WaitUntil(() => hasFadedOut);
+
+                if (this.currentSubscene != default(Scene))
+                {
+                    var asyncUnloadOperation = SceneManager.UnloadSceneAsync(this.currentSubscene);
+                    yield return new WaitUntil(() => asyncUnloadOperation.isDone);
+                }
+
+                var asyncLoadOperation = LoadAndConnectScene(this.autoSwitchingSubscenes[i]);
+                yield return new WaitUntil(() => asyncLoadOperation.isDone);
+                
                 yield return waitForInterval;
             }
         }
 
-        public void SwitchSubscene(string sceneName)
+        private AsyncOperation LoadAndConnectScene(string sceneName)
         {
-            if (this.currentSceneName == null)
+            var asyncOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            asyncOperation.completed += test =>
             {
-                this.LoadAndConnectScene(sceneName);
-                return;
-            }
+                var loadedSubscene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
+                
+                if (this == null)
+                {
+                    SceneManager.UnloadSceneAsync(loadedSubscene);
+                    return;
+                }
 
-            if (this.sceneSwitcher.SceneTransitionController == null)
-            {
-                SceneManager.UnloadSceneAsync(this.currentSceneName);
-                this.LoadAndConnectScene(sceneName);
-                return;
-            }
-
-            this.sceneSwitcher.SceneTransitionController.PlayFinalDisappearAnimation(() =>
-            {
-                SceneManager.UnloadSceneAsync(this.currentSceneName);
-                this.LoadAndConnectScene(sceneName);
-            });
-        }
-
-        private void OnDestroy()
-        {
-            if (this.currentSceneName != null)
-            {
-                SceneManager.UnloadScene(this.currentSceneName);
-            }
-        }
-
-        private void LoadAndConnectScene(string sceneName)
-        {
-            this.currentSceneName = sceneName;
-            var a = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            a.completed += _ =>
-            {
+                this.currentSubscene = loadedSubscene;
                 FindObjectOfType<ElasticSceneGenerator>().GenerationOrigin = this.generationOrigin;
                 this.sceneSwitcher.SceneTransitionController = FindObjectOfType<SceneTransitionController>();
             };
+
+            return asyncOperation;
         }
     }
 }
