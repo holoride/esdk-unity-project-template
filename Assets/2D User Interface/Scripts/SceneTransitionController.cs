@@ -42,14 +42,16 @@ namespace Holoride.ElasticSDKTemplate
             else
             {
                 this.fadeToBackgroundManager.OnDisappearAnimationFinished.AddListener(() =>
-                    onDisappearAnimationFinished.Invoke());
+                {
+                    onDisappearAnimationFinished.Invoke();
+                });
                 this.fadeToBackgroundManager.PlayDisappearAnimation();
             }
         }
 
         private bool IsLevelCompletelyFadedOut()
         {
-            return !this.fadeToBackgroundManager.IsPlayingForward && this.fadeToBackgroundManager.CurrentAnimationSecond <= this.fadeToBackgroundManager.AnimationEndSecond;
+            return !this.fadeToBackgroundManager.IsPlayingForward && this.fadeToBackgroundManager.CurrentAnimationSecond <= this.fadeToBackgroundManager.AnimationBeginSecond;
         }
     }
 }
