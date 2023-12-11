@@ -18,7 +18,7 @@ namespace Holoride.ElasticSDKTemplate
         [SerializeField] private AnimationCurve FadeOutCurve = AnimationCurve.EaseInOut(0f, 1f, 0.5f, 0f);
 
         [SerializeField] public UnityEvent OnSplashScreensShown;
-            
+
         private void Start()
         {
             foreach (var group in SplashScreenDisplayGroup)
