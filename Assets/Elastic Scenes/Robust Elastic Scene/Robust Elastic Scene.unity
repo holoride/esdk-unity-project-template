@@ -321,10 +321,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6073357535014570058, guid: 35baf111128fa864585fcec55c5d7394, type: 3}
+      propertyPath: fadeTransitionController
+      value: 
+      objectReference: {fileID: 1760444977}
     - target: {fileID: 7428183044042220219, guid: 35baf111128fa864585fcec55c5d7394, type: 3}
       propertyPath: sceneTransitionController
       value: 
       objectReference: {fileID: 1760444977}
+    - target: {fileID: 7428183044042220219, guid: 35baf111128fa864585fcec55c5d7394, type: 3}
+      propertyPath: onSceneEntryClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8132974591618947032, guid: 35baf111128fa864585fcec55c5d7394, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -578,16 +578,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1760444977}
     - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
-      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1760444977}
-    - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
-      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SendMessage
-      objectReference: {fileID: 0}
-    - target: {fileID: 3077958946998661663, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
-      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Component, UnityEngine
+      propertyPath: OnSplashScreensShown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Robust Elastic Scene
       objectReference: {fileID: 0}
     - target: {fileID: 4266033028540407119, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
       propertyPath: m_Name
@@ -637,5 +629,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9093643972910936381, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
+      propertyPath: fadeTransitionController
+      value: 
+      objectReference: {fileID: 1760444977}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6572c1fd2a8a02149823705364da2aa2, type: 3}
