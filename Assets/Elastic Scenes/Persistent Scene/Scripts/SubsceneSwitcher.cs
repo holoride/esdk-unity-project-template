@@ -21,8 +21,9 @@ namespace Holoride.ElasticSDKTemplate
         [SerializeField]
         private List<string> autoSwitchingSubscenes;
 
-        [Tooltip("The time interval in seconds before the next switch.")] [SerializeField]
-        private float autoSwitchAfterSeconds = 10;
+        [Tooltip("The time interval in seconds before the next switch.")] 
+        [SerializeField]
+        private float autoSwitchAfterSeconds = 1;
 
         private Scene currentSubscene = default(Scene);
 
@@ -40,25 +41,20 @@ namespace Holoride.ElasticSDKTemplate
 
             for (var i = 0;; i = (i + 1) % this.autoSwitchingSubscenes.Count)
             {
-                bool hasFadedOut = false;
-                if (this.sceneSwitcher.SceneTransitionController != null)
+                if (this.sceneSwitcher.FadeTransitionController != null)
                 {
-                    this.sceneSwitcher.SceneTransitionController.PlayFinalDisappearAnimation(() => hasFadedOut = true);
-                }
-                else
-                {
-                    hasFadedOut = true;
+                    bool hasFadedOut = false;
+                    this.sceneSwitcher.FadeTransitionController.PlayFinalDisappearAnimation(() => hasFadedOut = true);
+                    yield return new WaitUntil(() => hasFadedOut);
                 }
                 
-                yield return new WaitUntil(() => hasFadedOut);
-
                 if (this.currentSubscene != default(Scene))
                 {
                     var asyncUnloadOperation = SceneManager.UnloadSceneAsync(this.currentSubscene);
                     yield return new WaitUntil(() => asyncUnloadOperation.isDone);
                 }
 
-                var asyncLoadOperation = LoadAndConnectScene(this.autoSwitchingSubscenes[i]);
+                var asyncLoadOperation = this.LoadAndConnectScene(this.autoSwitchingSubscenes[i]);
                 yield return new WaitUntil(() => asyncLoadOperation.isDone);
                 
                 yield return waitForInterval;
@@ -80,7 +76,7 @@ namespace Holoride.ElasticSDKTemplate
 
                 this.currentSubscene = loadedSubscene;
                 FindObjectOfType<ElasticSceneGenerator>().GenerationOrigin = this.generationOrigin;
-                this.sceneSwitcher.SceneTransitionController = FindObjectOfType<SceneTransitionController>();
+                this.sceneSwitcher.FadeTransitionController = FindObjectOfType<FadeTransitionController>();
             };
 
             return asyncOperation;

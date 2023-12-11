@@ -6,6 +6,7 @@ namespace Holoride.ElasticSDKTemplate
     using UnityEngine.Events;
     using UnityEngine;
     using UnityEngine.SceneManagement;
+    using UnityEngine.Serialization;
 
     /// <summary>
     /// Controls the UI to select and switch to another scene, or reload the current scene.
@@ -22,10 +23,10 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("The canvas to toggle the UI.")]
         [SerializeField] 
         private GameObject canvas;
-
+        
         [Tooltip("The LocalizationEvents to disable before the scene unloads.")]
         [SerializeField] 
-        private SceneTransitionController sceneTransitionController;
+        private FadeTransitionController fadeTransitionController;
         
         [Tooltip("Gets invoked when the menu gets opened.")]
         [SerializeField] 
@@ -37,10 +38,10 @@ namespace Holoride.ElasticSDKTemplate
         
         private bool isChangingLevel = false;
 
-        public SceneTransitionController SceneTransitionController
+        public FadeTransitionController FadeTransitionController
         {
-            get => this.sceneTransitionController;
-            set => this.sceneTransitionController = value;
+            get => this.fadeTransitionController;
+            set => this.fadeTransitionController = value;
         }
 
         private void Awake()
@@ -58,13 +59,13 @@ namespace Holoride.ElasticSDKTemplate
                     this.isChangingLevel = true;
                     this.canvas.SetActive(false);
 
-                    if (this.sceneTransitionController == null)
+                    if (this.fadeTransitionController == null)
                     {
                         SceneManager.LoadSceneAsync(sceneName);
                     }
                     else
                     {
-                        this.sceneTransitionController.PlayFinalDisappearAnimation(
+                        this.fadeTransitionController.PlayFinalDisappearAnimation(
                             () => SceneManager.LoadSceneAsync(sceneName));
                     }
                 });

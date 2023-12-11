@@ -260,7 +260,7 @@ MonoBehaviour:
   - Subscene Cubes
   - Subscene Cylinders
   - Subscene Spheres
-  autoSwitchAfterSeconds: 10
+  autoSwitchAfterSeconds: 3
 --- !u!4 &416066000
 Transform:
   m_ObjectHideFlags: 0
