@@ -52,13 +52,13 @@ namespace Holoride.ElasticSDKTemplate
             
             while (!this.destroyCancellationTokenSource.IsCancellationRequested)
             {
-                await this.UnloadCurrentAndLoadSubscene(this.autoSwitchingSubscenes[i]);
+                await this.SwitchSubscene(this.autoSwitchingSubscenes[i]);
                 await UniTask.Delay(TimeSpan.FromSeconds(this.autoSwitchAfterSeconds), cancellationToken: this.destroyCancellationTokenSource.Token);
                 i = (i + 1) % this.autoSwitchingSubscenes.Count;
             }
         }
 
-        public async UniTask UnloadCurrentAndLoadSubscene(string sceneName)
+        public async UniTask SwitchSubscene(string sceneName)
         {
             if (this.sceneSwitcher.FadeTransitionController != null)
             {
