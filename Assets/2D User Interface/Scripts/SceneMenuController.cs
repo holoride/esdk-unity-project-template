@@ -31,7 +31,7 @@ namespace Holoride.ElasticSDKTemplate
         [SerializeField] 
         private UnityEvent onMenuClosed;
         
-        [Tooltip("Gets invoked when the menu gets closed.")]
+        [Tooltip("Gets invoked when a menu entry gets clicked.")]
         [SerializeField] 
         private UnityEvent<string> onSceneEntryClicked;
         
