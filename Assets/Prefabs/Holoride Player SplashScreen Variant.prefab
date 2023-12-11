@@ -306,15 +306,28 @@ MonoBehaviour:
   OnSplashScreensShown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Holoride.ElasticSDKTemplate.LevelSwitcher, Assembly-CSharp
-        m_MethodName: SwitchScene
+      - m_Target: {fileID: 9093643972910936381}
+        m_TargetAssemblyTypeName: Holoride.ElasticSDKTemplate.SceneSwitcher, Assembly-CSharp
+        m_MethodName: SwitchToScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Robust Elastic Scene
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9093643972910936381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776107287389903585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6ef87b49754f59871193ff827e505f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTransitionController: {fileID: 0}

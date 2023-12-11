@@ -5,16 +5,17 @@ namespace Holoride.ElasticSDKTemplate
     using System.Collections;
     using System.Collections.Generic;
     using ElasticSDK;
-    using Unity.VisualScripting;
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
     public class SubsceneSwitcher : MonoBehaviour
     {
-        [Tooltip("The generation origin.")] [SerializeField]
+        [Tooltip("The generation origin.")] 
+        [SerializeField]
         private Transform generationOrigin;
 
-        [Tooltip("The sceneName switcher.")] [SerializeField]
+        [Tooltip("The scene switcher.")]
+        [SerializeField]
         private SceneSwitcher sceneSwitcher;
 
         [Tooltip("The scenes to switch automatically. Automatic switching is disabled if the list is empty.")]
@@ -25,7 +26,7 @@ namespace Holoride.ElasticSDKTemplate
         [SerializeField]
         private float autoSwitchAfterSeconds = 1;
 
-        private Scene currentSubscene = default(Scene);
+        private Scene currentSubscene;
 
         private void Awake()
         {
@@ -48,7 +49,7 @@ namespace Holoride.ElasticSDKTemplate
                     yield return new WaitUntil(() => hasFadedOut);
                 }
                 
-                if (this.currentSubscene != default(Scene))
+                if (this.currentSubscene != default)
                 {
                     var asyncUnloadOperation = SceneManager.UnloadSceneAsync(this.currentSubscene);
                     yield return new WaitUntil(() => asyncUnloadOperation.isDone);
@@ -64,7 +65,7 @@ namespace Holoride.ElasticSDKTemplate
         private AsyncOperation LoadAndConnectScene(string sceneName)
         {
             var asyncOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            asyncOperation.completed += test =>
+            asyncOperation.completed += _ =>
             {
                 var loadedSubscene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
                 
