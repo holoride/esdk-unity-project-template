@@ -2,8 +2,10 @@
 
 namespace Holoride.ElasticSDKTemplate
 {
-    using System.Collections;
+    using System;
     using System.Collections.Generic;
+    using System.Threading;
+    using Cysharp.Threading.Tasks;
     using ElasticSDK;
     using UnityEngine;
     using UnityEngine.SceneManagement;
@@ -27,42 +29,55 @@ namespace Holoride.ElasticSDKTemplate
         private float autoSwitchAfterSeconds = 1;
 
         private Scene currentSubscene;
-
+        
+        private CancellationTokenSource destroyCancellationTokenSource = new CancellationTokenSource();
+        
         private void Awake()
         {
             if (this.autoSwitchingSubscenes.Count > 0)
             {
-                StartCoroutine(this.KeepSwitchingEnvironments());
+                this.KeepSwitchingSubscenes().Forget();
             }
         }
-
-        private IEnumerator KeepSwitchingEnvironments()
+        
+        private void OnDestroy()
         {
-            var waitForInterval = new WaitForSeconds(this.autoSwitchAfterSeconds);
+            this.destroyCancellationTokenSource.Cancel();
+            this.destroyCancellationTokenSource.Dispose();
+        }
 
-            for (var i = 0;; i = (i + 1) % this.autoSwitchingSubscenes.Count)
+        private async UniTask KeepSwitchingSubscenes()
+        {
+            int i = 0;
+            
+            while (!this.destroyCancellationTokenSource.IsCancellationRequested)
             {
-                if (this.sceneSwitcher.FadeTransitionController != null)
-                {
-                    bool hasFadedOut = false;
-                    this.sceneSwitcher.FadeTransitionController.PlayFinalDisappearAnimation(() => hasFadedOut = true);
-                    yield return new WaitUntil(() => hasFadedOut);
-                }
-                
-                if (this.currentSubscene != default)
-                {
-                    var asyncUnloadOperation = SceneManager.UnloadSceneAsync(this.currentSubscene);
-                    yield return new WaitUntil(() => asyncUnloadOperation.isDone);
-                }
-
-                var asyncLoadOperation = this.LoadAndConnectScene(this.autoSwitchingSubscenes[i]);
-                yield return new WaitUntil(() => asyncLoadOperation.isDone);
-                
-                yield return waitForInterval;
+                await this.UnloadCurrentAndLoadSubscene(this.autoSwitchingSubscenes[i]);
+                await UniTask.Delay(TimeSpan.FromSeconds(this.autoSwitchAfterSeconds), cancellationToken: this.destroyCancellationTokenSource.Token);
+                i = (i + 1) % this.autoSwitchingSubscenes.Count;
             }
         }
 
-        private AsyncOperation LoadAndConnectScene(string sceneName)
+        public async UniTask UnloadCurrentAndLoadSubscene(string sceneName)
+        {
+            if (this.sceneSwitcher.FadeTransitionController != null)
+            {
+                bool hasFadedOut = false;
+                this.sceneSwitcher.FadeTransitionController.PlayFinalDisappearAnimation(() => hasFadedOut = true);
+                await UniTask.WaitUntil(() => hasFadedOut, cancellationToken: this.destroyCancellationTokenSource.Token);
+            }
+                
+            if (this.currentSubscene != default)
+            {
+                var asyncUnloadOperation = SceneManager.UnloadSceneAsync(this.currentSubscene);
+                await UniTask.WaitUntil(() => asyncUnloadOperation.isDone, cancellationToken: this.destroyCancellationTokenSource.Token);
+            }
+
+            var asyncLoadOperation = this.LoadAndConnectSubscene(sceneName);
+            await UniTask.WaitUntil(() => asyncLoadOperation.isDone, cancellationToken: this.destroyCancellationTokenSource.Token);
+        }
+
+        private AsyncOperation LoadAndConnectSubscene(string sceneName)
         {
             var asyncOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             asyncOperation.completed += _ =>
