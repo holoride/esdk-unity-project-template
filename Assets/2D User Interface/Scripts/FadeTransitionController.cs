@@ -12,7 +12,7 @@ namespace Holoride.ElasticSDKTemplate
     /// Triggers the fadeout animation on scene changes if the FadeToBackgroundManager is linked.
     /// Disables a LocalizationEvent component to not interrupt an ongoing fadeout animation before a scene change.
     /// </summary>
-    public class SceneTransitionController : MonoBehaviour
+    public class FadeTransitionController : MonoBehaviour
     {
         [Tooltip("The LocalizationEvents to disable before the scene unloads.")] 
         [SerializeField]
