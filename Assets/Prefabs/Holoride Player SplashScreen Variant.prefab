@@ -32,7 +32,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1776107287389903584}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -118,7 +117,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1776107287389903584}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -177,6 +175,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 459340825738982867, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
@@ -228,6 +227,21 @@ PrefabInstance:
       value: Holoride Player SplashScreen Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2723013427837940290, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 467059719042394096}
+    - targetCorrespondingSourceObject: {fileID: 2723013427837940290, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5622406205111486243}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2723013427837940291, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3077958946998661663}
+    - targetCorrespondingSourceObject: {fileID: 2723013427837940291, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9093643972910936381}
   m_SourcePrefab: {fileID: 100100000, guid: 4560ee23ad654d04daa5fa370da33835, type: 3}
 --- !u!224 &1776107287389903584 stripped
 RectTransform:
