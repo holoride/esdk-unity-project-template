@@ -65,5 +65,26 @@ MonoBehaviour:
   - {fileID: -8655639125467701336}
   - {fileID: -503136596979266556}
   - {fileID: -6926727652211361771}
-  EditorBackend: {fileID: -503136596979266556}
-  StandaloneBackend: {fileID: -6926727652211361771}
+  - {fileID: 9004735236347513647}
+  <EditorBackend>k__BackingField: {fileID: -503136596979266556}
+  <TravelBackend>k__BackingField: {fileID: -6926727652211361771}
+  <StationaryBackend>k__BackingField: {fileID: 9004735236347513647}
+--- !u!114 &9004735236347513647
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29f955397d246e3bbf7b6dda8a8fe9f, type: 3}
+  m_Name: CustomMotionStateReceiverBackend
+  m_EditorClassIdentifier: 
+  MotionAngleDegreesPerSecond: 1
+  VehicleTurnMotion: 0
+  SpeedKmh: 60
+  StartLocation:
+    Latitude: 48.16191079480319
+    Longitude: 11.593924782892978
+    Altitude: 0
