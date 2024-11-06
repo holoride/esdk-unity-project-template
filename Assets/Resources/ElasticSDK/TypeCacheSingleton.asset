@@ -16,30 +16,38 @@ MonoBehaviour:
   - BaseType: Holoride.ElasticSDK.Graph.IWorkerMapper, Holoride.ElasticSDK.Runtime,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     DerivedTypes:
-    - Holoride.ElasticSDK.Graph.PoseSetProvider, Holoride.ElasticSDK.Runtime, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
     - Holoride.ElasticSDK.Graph.FloatListFromMapProvider, Holoride.ElasticSDK.Runtime,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     - Holoride.ElasticSDK.Graph.FloatValueFromMapProvider, Holoride.ElasticSDK.Runtime,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    - Holoride.ElasticSDK.Graph.PoseSetProvider, Holoride.ElasticSDK.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   serializedAnnotatedMethods:
   - Attribute: Holoride.ElasticSDK.RuntimeInitializeAfterSingletonsMethodAttribute,
-      Holoride, Version=0.27.1.0, Culture=neutral, PublicKeyToken=null
+      Holoride, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     AnnotatedMethods:
-    - DeclaringType: Holoride.ElasticSDK.RecenterOffsetManager, Holoride, Version=0.27.1.0,
-        Culture=neutral, PublicKeyToken=null
-      Name: OnLoad
+    - DeclaringType: A.a, Holoride, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Name: OnRuntimeMethodLoad
       ParameterTypes: []
-    - DeclaringType: Holoride.ElasticSDK.Debug, Holoride, Version=0.27.1.0, Culture=neutral,
+    - DeclaringType: Holoride.ElasticSDK.Debug, Holoride, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       Name: OnSingletonsAvailable
       ParameterTypes: []
-    - DeclaringType: Holoride.ElasticSDK.StateReceiver, Holoride, Version=0.27.1.0,
+    - DeclaringType: Holoride.ElasticSDK.RecenterOffsetManager, Holoride, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       Name: OnLoad
       ParameterTypes: []
-    - DeclaringType: A.a, Holoride, Version=0.27.1.0, Culture=neutral, PublicKeyToken=null
-      Name: OnRuntimeMethodLoad
+    - DeclaringType: Holoride.ElasticSDK.StateReceiver, Holoride, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      Name: OnLoad
+      ParameterTypes: []
+    - DeclaringType: Holoride.ElasticSDK.StreetDistanceSingleton, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Name: Init
+      ParameterTypes: []
+    - DeclaringType: Holoride.ElasticSDK.StateReceiverBackendSelector, Holoride.ElasticSDK.Runtime,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Name: Initialize
       ParameterTypes: []
     - DeclaringType: Holoride.ElasticSDK.LocalizationModes.StationaryModeManager,
         Holoride.ElasticSDK.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -48,14 +56,6 @@ MonoBehaviour:
     - DeclaringType: Holoride.ElasticSDK.Graph.GraphAccessUtils, Holoride.ElasticSDK.Runtime,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Name: Initialize
-      ParameterTypes: []
-    - DeclaringType: Holoride.ElasticSDK.StateReceiverBackendSelector, Holoride.ElasticSDK.Runtime,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Name: Initialize
-      ParameterTypes: []
-    - DeclaringType: Holoride.ElasticSDK.StreetDistanceSingleton, Holoride.ElasticSDK.Runtime,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Name: Init
       ParameterTypes: []
     - DeclaringType: Holoride.ElasticSDK.Authentication.TokenManager, Holoride.ElasticSDK.Runtime,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
