@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b7d27c9b5c44ee8d8ad651411403d8, type: 3}
   m_Name: ReplayStateReceiverBackend
   m_EditorClassIdentifier: 
-  replay: {fileID: 11400000, guid: 8696241ea77d2fa4b86067164e2ca578, type: 2}
+  replay: {fileID: 11400000, guid: ecd2a054207c23a498d4eb8e9cc79197, type: 2}
   loop: 1
   interpolator:
     InitialFrameSize: 0.03
@@ -67,7 +67,7 @@ MonoBehaviour:
   - {fileID: -6926727652211361771}
   - {fileID: 9004735236347513647}
   <EditorBackend>k__BackingField: {fileID: -503136596979266556}
-  <TravelBackend>k__BackingField: {fileID: -6926727652211361771}
+  <TravelBackend>k__BackingField: {fileID: -503136596979266556}
   <StationaryBackend>k__BackingField: {fileID: 9004735236347513647}
 --- !u!114 &9004735236347513647
 MonoBehaviour:

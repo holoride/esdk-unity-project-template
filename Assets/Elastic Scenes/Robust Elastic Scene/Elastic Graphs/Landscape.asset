@@ -84,7 +84,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -1234309000404082165}
 --- !u!114 &-8661356100990034477
 MonoBehaviour:
@@ -231,7 +231,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -1234309000404082165}
 --- !u!114 &-7746580273684829539
 MonoBehaviour:
@@ -469,7 +469,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -3068035399126955945}
 --- !u!114 &-4083172602336768147
 MonoBehaviour:
@@ -502,7 +502,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -1234309000404082165}
 --- !u!114 &-3394017503124090527
 MonoBehaviour:
@@ -599,7 +599,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -1234309000404082165}
 --- !u!114 &-2875582409528820189
 MonoBehaviour:
@@ -1022,7 +1022,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -5323546801912452115}
 --- !u!114 &1563826221968902474
 MonoBehaviour:
@@ -1210,6 +1210,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
+  SpeedLimits: 0
 --- !u!114 &3266047486244611093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,7 +1500,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -3394017503124090527}
 --- !u!114 &5060471836312263196
 MonoBehaviour:
@@ -1619,9 +1620,9 @@ MonoBehaviour:
   Output: {fileID: 0}
   Input: {fileID: 0}
   PoseSet: {fileID: 0}
-  Texture: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
-  Scale: {x: 35, y: 10, z: 35}
-  Height: 6
+  Texture: {fileID: 2800000, guid: b819a026a385ede4aa0a8cea6fa0cf4c, type: 3}
+  Scale: {x: 25, y: 10, z: 25}
+  Height: 0
   Blending: 3
 --- !u!114 &6170134717569169733
 MonoBehaviour:
@@ -1798,6 +1799,7 @@ MonoBehaviour:
   PoseSet: {fileID: 0}
   Threshold: 20
   RemoveCondition: 0
+  sampleOffsets: []
 --- !u!114 &7155154442580225997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,7 +1907,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Output: {fileID: 0}
-  elasticNodeGraph: {fileID: 11400000}
+  ElasticNodeGraph: {fileID: 11400000}
   Input: {fileID: -5323546801912452115}
 --- !u!114 &7433766075915405471
 MonoBehaviour:
