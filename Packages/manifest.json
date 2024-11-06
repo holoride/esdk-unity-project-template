@@ -1,11 +1,8 @@
 {
   "dependencies": {
-    "com.holoride.buildsystem": "file:../../esdk-unity (localinclude)/ElasticSDK/Packages/com.holoride.buildsystem",
-    "com.holoride.elasticsdk": "file:../../esdk-unity (localinclude)/ElasticSDK/Packages/com.holoride.elasticsdk",
-    "com.holoride.elasticsdk.content2dtools": "file:../../esdk-unity (localinclude)/ElasticSDK/Packages/com.holoride.elasticsdk.content2dtools",
-    "com.holoride.elasticsdk.fadetobackground.builtinrp": "file:../../esdk-unity (localinclude)/ElasticSDK/Packages/com.holoride.elasticsdk.fadetobackground.builtinrp",
-    "com.holoride.oauth": "file:../../esdk-unity (localinclude)/ElasticSDK/Packages/com.holoride.oauth",
-    "com.holoride.elasticsdk.servicesdk.android": "file:../../esdk-unity (localinclude)/ElasticSDK/Packages/com.holoride.elasticsdk.servicesdk.android",
+    "com.holoride.elasticsdk": "0.27.1",
+    "com.holoride.elasticsdk.content2dtools": "0.2.3",
+    "com.holoride.elasticsdk.fadetobackground.builtinrp": "0.1.3",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.28",
@@ -18,7 +15,6 @@
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.4",
     "com.unity.xr.management": "4.4.1",
-    "com.unity.xr.oculus": "4.2.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
