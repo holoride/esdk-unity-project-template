@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 1196095471, guid: 075c1b6290021214a94ab7c078ce203f, type: 3}
   m_Name: GlobalSettings
   m_EditorClassIdentifier: 
-  manifestFile: {fileID: 0}
-  signedManifestAssetId:
-  signedManifest:
+  SignedManifestAssetId: 
+  SignedManifest: 
+  deviceTrackingReference: 0
+  applyPrefabRootTransform: 1
   laneWidth: 4
   roadSideWidth: 4
   defaultLaneCount: 2

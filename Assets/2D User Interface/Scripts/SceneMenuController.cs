@@ -1,5 +1,7 @@
 // Copyright (c) holoride GmbH. All Rights Reserved.
 
+using UnityEngine.InputSystem;
+
 namespace Holoride.ElasticSDKTemplate
 {
     using System.Collections.Generic;
@@ -34,8 +36,13 @@ namespace Holoride.ElasticSDKTemplate
         [Tooltip("Gets invoked when a menu entry gets clicked.")]
         [SerializeField] 
         private UnityEvent<string> onSceneEntryClicked;
-        
+
+        [Tooltip("Input action checked to toggle menu visibility.")]
+        [SerializeField]
+        private InputActionReference toggleMenuVisibility;
+
         private bool isChangingLevel = false;
+        private InputAction toggleMenuVisibilityAction;
 
         private void Awake()
         {
@@ -54,28 +61,35 @@ namespace Holoride.ElasticSDKTemplate
                     this.onSceneEntryClicked.Invoke(sceneName);
                 });
             }
+
+            this.toggleMenuVisibilityAction = this.toggleMenuVisibility.ToInputAction();
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Cancel"))
-            {
-                Debug.Log("SUBMIT isChangingLevel? " + isChangingLevel);
-                if (!this.canvas.activeInHierarchy && !isChangingLevel)
-                {
-                    this.canvas.SetActive(true);
-                    this.onMenuOpened.Invoke();
-                }
-                else
-                {
-                    if (Input.GetButtonDown("Cancel"))
-                    {
-                        this.canvas.SetActive(false);
-                        this.onMenuClosed.Invoke();
-                    }
+            this.toggleMenuVisibilityAction.Enable();
+            this.toggleMenuVisibilityAction.performed += HandleToggleMenuVisibilityAction;
+        }
 
-                    this.menu.RestorePreviousSelection();
-                }
+        private void OnDisable()
+        {
+            // Don't disable the action as it may be shared with other logic, such as UI event system.
+            // this.toggleMenuVisibilityAction.Disable();
+            this.toggleMenuVisibilityAction.performed -= HandleToggleMenuVisibilityAction;
+        }
+
+        private void HandleToggleMenuVisibilityAction(InputAction.CallbackContext context)
+        {
+            if (!this.canvas.activeInHierarchy && !isChangingLevel)
+            {
+                this.canvas.SetActive(true);
+                this.onMenuOpened.Invoke();
+            }
+            else
+            {
+                this.canvas.SetActive(false);
+                this.onMenuClosed.Invoke();
+                this.menu.RestorePreviousSelection();
             }
         }
     }

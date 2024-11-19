@@ -91,8 +91,8 @@ namespace Holoride.ElasticSDKTemplate
                 }
 
                 this.currentSubscene = loadedSubscene;
-                FindObjectOfType<ElasticSceneGenerator>().GenerationOrigin = this.generationOrigin;
-                this.sceneSwitcher.FadeTransitionController = FindObjectOfType<FadeTransitionController>();
+                FindFirstObjectByType<ElasticSceneGenerator>().GenerationOrigin = this.generationOrigin;
+                this.sceneSwitcher.FadeTransitionController = FindFirstObjectByType<FadeTransitionController>();
             };
 
             return asyncOperation;
