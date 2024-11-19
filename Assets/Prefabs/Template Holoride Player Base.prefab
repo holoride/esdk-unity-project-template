@@ -403,6 +403,15 @@ PrefabInstance:
       value: Template Holoride Player Base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4501280527984818735, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2723013428470947488}
+    - targetCorrespondingSourceObject: {fileID: 4501280527984818735, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1667557218}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac13963aeabfca94ca7775de2b42c7af, type: 3}
 --- !u!4 &7082235447387971815 stripped
 Transform:
